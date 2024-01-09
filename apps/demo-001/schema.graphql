@@ -1,0 +1,2794 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Account {
+  accessToken: String
+  expiresAt: Float
+  id: String!
+  idToken: String
+  provider: String!
+  providerAccountId: String!
+  refreshToken: String
+  scope: String
+  sessionState: String
+  tokenType: String
+  typeField: String!
+  user: User
+}
+
+input AccountCreateInput {
+  accessToken: String
+  expiresAt: Float
+  idToken: String
+  provider: String!
+  providerAccountId: String!
+  refreshToken: String
+  scope: String
+  sessionState: String
+  tokenType: String
+  typeField: String!
+  user: UserWhereUniqueInput
+}
+
+input AccountCreateNestedManyWithoutUsersInput {
+  connect: [AccountWhereUniqueInput!]
+}
+
+input AccountListRelationFilter {
+  every: AccountWhereInput
+  none: AccountWhereInput
+  some: AccountWhereInput
+}
+
+input AccountOrderByInput {
+  accessToken: SortOrder
+  expiresAt: SortOrder
+  id: SortOrder
+  idToken: SortOrder
+  provider: SortOrder
+  providerAccountId: SortOrder
+  refreshToken: SortOrder
+  scope: SortOrder
+  sessionState: SortOrder
+  tokenType: SortOrder
+  typeField: SortOrder
+  userId: SortOrder
+}
+
+input AccountUpdateInput {
+  accessToken: String
+  expiresAt: Float
+  idToken: String
+  provider: String
+  providerAccountId: String
+  refreshToken: String
+  scope: String
+  sessionState: String
+  tokenType: String
+  typeField: String
+  user: UserWhereUniqueInput
+}
+
+input AccountUpdateManyWithoutUsersInput {
+  connect: [AccountWhereUniqueInput!]
+  disconnect: [AccountWhereUniqueInput!]
+  set: [AccountWhereUniqueInput!]
+}
+
+input AccountWhereInput {
+  accessToken: StringNullableFilter
+  expiresAt: IntNullableFilter
+  id: StringFilter
+  idToken: StringNullableFilter
+  provider: StringFilter
+  providerAccountId: StringFilter
+  refreshToken: StringNullableFilter
+  scope: StringNullableFilter
+  sessionState: StringNullableFilter
+  tokenType: StringNullableFilter
+  typeField: StringFilter
+  user: UserWhereUniqueInput
+}
+
+input AccountWhereUniqueInput {
+  id: String!
+}
+
+type ApiKey {
+  app: Application
+  createdAt: DateTime!
+  expiresAt: DateTime
+  hashedKey: String!
+  id: String!
+  lastUsedAt: DateTime
+  note: String
+  user: User
+}
+
+input ApiKeyCreateInput {
+  app: ApplicationWhereUniqueInput
+  expiresAt: DateTime
+  hashedKey: String!
+  lastUsedAt: DateTime
+  note: String
+  user: UserWhereUniqueInput
+}
+
+input ApiKeyCreateNestedManyWithoutApplicationsInput {
+  connect: [ApiKeyWhereUniqueInput!]
+}
+
+input ApiKeyCreateNestedManyWithoutUsersInput {
+  connect: [ApiKeyWhereUniqueInput!]
+}
+
+input ApiKeyListRelationFilter {
+  every: ApiKeyWhereInput
+  none: ApiKeyWhereInput
+  some: ApiKeyWhereInput
+}
+
+input ApiKeyOrderByInput {
+  appId: SortOrder
+  createdAt: SortOrder
+  expiresAt: SortOrder
+  hashedKey: SortOrder
+  id: SortOrder
+  lastUsedAt: SortOrder
+  note: SortOrder
+  userId: SortOrder
+}
+
+input ApiKeyUpdateInput {
+  app: ApplicationWhereUniqueInput
+  expiresAt: DateTime
+  hashedKey: String
+  lastUsedAt: DateTime
+  note: String
+  user: UserWhereUniqueInput
+}
+
+input ApiKeyUpdateManyWithoutApplicationsInput {
+  connect: [ApiKeyWhereUniqueInput!]
+  disconnect: [ApiKeyWhereUniqueInput!]
+  set: [ApiKeyWhereUniqueInput!]
+}
+
+input ApiKeyUpdateManyWithoutUsersInput {
+  connect: [ApiKeyWhereUniqueInput!]
+  disconnect: [ApiKeyWhereUniqueInput!]
+  set: [ApiKeyWhereUniqueInput!]
+}
+
+input ApiKeyWhereInput {
+  app: ApplicationWhereUniqueInput
+  createdAt: DateTimeFilter
+  expiresAt: DateTimeNullableFilter
+  hashedKey: StringFilter
+  id: StringFilter
+  lastUsedAt: DateTimeNullableFilter
+  note: StringNullableFilter
+  user: UserWhereUniqueInput
+}
+
+input ApiKeyWhereUniqueInput {
+  id: String!
+}
+
+type Application {
+  apiKey(orderBy: [ApiKeyOrderByInput!], skip: Float, take: Float, where: ApiKeyWhereInput): [ApiKey!]!
+  categories: [EnumApplicationCategories!]
+  createdAt: DateTime!
+  credentials(orderBy: [CredentialOrderByInput!], skip: Float, take: Float, where: CredentialWhereInput): [Credential!]!
+  dirName: String!
+  id: String!
+  keys: JSON
+  updatedAt: DateTime!
+  webhook(orderBy: [WebhookOrderByInput!], skip: Float, take: Float, where: WebhookWhereInput): [Webhook!]!
+}
+
+input ApplicationCreateInput {
+  apiKey: ApiKeyCreateNestedManyWithoutApplicationsInput
+  categories: [EnumApplicationCategories!]
+  credentials: CredentialCreateNestedManyWithoutApplicationsInput
+  dirName: String!
+  keys: JSON
+  webhook: WebhookCreateNestedManyWithoutApplicationsInput
+}
+
+input ApplicationOrderByInput {
+  categories: SortOrder
+  createdAt: SortOrder
+  dirName: SortOrder
+  id: SortOrder
+  keys: SortOrder
+  updatedAt: SortOrder
+}
+
+input ApplicationUpdateInput {
+  apiKey: ApiKeyUpdateManyWithoutApplicationsInput
+  categories: [EnumApplicationCategories!]
+  credentials: CredentialUpdateManyWithoutApplicationsInput
+  dirName: String
+  keys: JSON
+  webhook: WebhookUpdateManyWithoutApplicationsInput
+}
+
+input ApplicationWhereInput {
+  apiKey: ApiKeyListRelationFilter
+  createdAt: DateTimeFilter
+  credentials: CredentialListRelationFilter
+  dirName: StringFilter
+  id: StringFilter
+  keys: JsonFilter
+  updatedAt: DateTimeFilter
+  webhook: WebhookListRelationFilter
+}
+
+input ApplicationWhereUniqueInput {
+  id: String!
+}
+
+type Attendee {
+  booking: Booking
+  email: String!
+  id: Float!
+  locale: String
+  name: String!
+  timeZone: String!
+}
+
+input AttendeeCreateInput {
+  booking: BookingWhereUniqueInput
+  email: String!
+  locale: String
+  name: String!
+  timeZone: String!
+}
+
+input AttendeeCreateNestedManyWithoutBookingsInput {
+  connect: [AttendeeWhereUniqueInput!]
+}
+
+input AttendeeListRelationFilter {
+  every: AttendeeWhereInput
+  none: AttendeeWhereInput
+  some: AttendeeWhereInput
+}
+
+input AttendeeOrderByInput {
+  bookingId: SortOrder
+  email: SortOrder
+  id: SortOrder
+  locale: SortOrder
+  name: SortOrder
+  timeZone: SortOrder
+}
+
+input AttendeeUpdateInput {
+  booking: BookingWhereUniqueInput
+  email: String
+  locale: String
+  name: String
+  timeZone: String
+}
+
+input AttendeeUpdateManyWithoutBookingsInput {
+  connect: [AttendeeWhereUniqueInput!]
+  disconnect: [AttendeeWhereUniqueInput!]
+  set: [AttendeeWhereUniqueInput!]
+}
+
+input AttendeeWhereInput {
+  booking: BookingWhereUniqueInput
+  email: StringFilter
+  id: IntFilter
+  locale: StringNullableFilter
+  name: StringFilter
+  timeZone: StringFilter
+}
+
+input AttendeeWhereUniqueInput {
+  id: Float!
+}
+
+type Availability {
+  date: DateTime
+  days: Float!
+  endTime: DateTime!
+  eventType: EventType
+  id: Float!
+  schedule: Schedule
+  startTime: DateTime!
+  user: User
+}
+
+input AvailabilityCreateInput {
+  date: DateTime
+  days: Float!
+  endTime: DateTime!
+  eventType: EventTypeWhereUniqueInput
+  schedule: ScheduleWhereUniqueInput
+  startTime: DateTime!
+  user: UserWhereUniqueInput
+}
+
+input AvailabilityCreateNestedManyWithoutEventTypesInput {
+  connect: [AvailabilityWhereUniqueInput!]
+}
+
+input AvailabilityCreateNestedManyWithoutSchedulesInput {
+  connect: [AvailabilityWhereUniqueInput!]
+}
+
+input AvailabilityCreateNestedManyWithoutUsersInput {
+  connect: [AvailabilityWhereUniqueInput!]
+}
+
+input AvailabilityListRelationFilter {
+  every: AvailabilityWhereInput
+  none: AvailabilityWhereInput
+  some: AvailabilityWhereInput
+}
+
+input AvailabilityOrderByInput {
+  date: SortOrder
+  days: SortOrder
+  endTime: SortOrder
+  eventTypeId: SortOrder
+  id: SortOrder
+  scheduleId: SortOrder
+  startTime: SortOrder
+  userId: SortOrder
+}
+
+input AvailabilityUpdateInput {
+  date: DateTime
+  days: Float
+  endTime: DateTime
+  eventType: EventTypeWhereUniqueInput
+  schedule: ScheduleWhereUniqueInput
+  startTime: DateTime
+  user: UserWhereUniqueInput
+}
+
+input AvailabilityUpdateManyWithoutEventTypesInput {
+  connect: [AvailabilityWhereUniqueInput!]
+  disconnect: [AvailabilityWhereUniqueInput!]
+  set: [AvailabilityWhereUniqueInput!]
+}
+
+input AvailabilityUpdateManyWithoutSchedulesInput {
+  connect: [AvailabilityWhereUniqueInput!]
+  disconnect: [AvailabilityWhereUniqueInput!]
+  set: [AvailabilityWhereUniqueInput!]
+}
+
+input AvailabilityUpdateManyWithoutUsersInput {
+  connect: [AvailabilityWhereUniqueInput!]
+  disconnect: [AvailabilityWhereUniqueInput!]
+  set: [AvailabilityWhereUniqueInput!]
+}
+
+input AvailabilityWhereInput {
+  date: DateTimeNullableFilter
+  days: IntFilter
+  endTime: DateTimeFilter
+  eventType: EventTypeWhereUniqueInput
+  id: IntFilter
+  schedule: ScheduleWhereUniqueInput
+  startTime: DateTimeFilter
+  user: UserWhereUniqueInput
+}
+
+input AvailabilityWhereUniqueInput {
+  id: Float!
+}
+
+type Booking {
+  attendees(orderBy: [AttendeeOrderByInput!], skip: Float, take: Float, where: AttendeeWhereInput): [Attendee!]!
+  cancellationReason: String
+  createdAt: DateTime!
+  customInputs: JSON
+  dailyRef: DailyEventReference
+  description: String
+  destinationCalendar: DestinationCalendar
+  dynamicEventSlugRef: String
+  dynamicGroupSlugRef: String
+  endTime: DateTime!
+  eventType: EventType
+  fromReschedule: String
+  id: Float!
+  location: String
+  paid: Boolean!
+  payment(orderBy: [PaymentOrderByInput!], skip: Float, take: Float, where: PaymentWhereInput): [Payment!]!
+  recurringEventId: String
+  references(orderBy: [BookingReferenceOrderByInput!], skip: Float, take: Float, where: BookingReferenceWhereInput): [BookingReference!]!
+  rejectionReason: String
+  rescheduled: Boolean
+  smsReminderNumber: String
+  startTime: DateTime!
+  status: EnumBookingStatus
+  title: String!
+  uid: String!
+  updatedAt: DateTime
+  user: User
+  workflowReminders(orderBy: [WorkflowReminderOrderByInput!], skip: Float, take: Float, where: WorkflowReminderWhereInput): [WorkflowReminder!]!
+}
+
+input BookingCreateInput {
+  attendees: AttendeeCreateNestedManyWithoutBookingsInput
+  cancellationReason: String
+  customInputs: JSON
+  dailyRef: DailyEventReferenceWhereUniqueInput
+  description: String
+  destinationCalendar: DestinationCalendarWhereUniqueInput
+  dynamicEventSlugRef: String
+  dynamicGroupSlugRef: String
+  endTime: DateTime!
+  eventType: EventTypeWhereUniqueInput
+  fromReschedule: String
+  location: String
+  paid: Boolean!
+  payment: PaymentCreateNestedManyWithoutBookingsInput
+  recurringEventId: String
+  references: BookingReferenceCreateNestedManyWithoutBookingsInput
+  rejectionReason: String
+  rescheduled: Boolean
+  smsReminderNumber: String
+  startTime: DateTime!
+  status: EnumBookingStatus!
+  title: String!
+  uid: String!
+  updatedAt: DateTime
+  user: UserWhereUniqueInput
+  workflowReminders: WorkflowReminderCreateNestedManyWithoutBookingsInput
+}
+
+input BookingCreateNestedManyWithoutEventTypesInput {
+  connect: [BookingWhereUniqueInput!]
+}
+
+input BookingCreateNestedManyWithoutUsersInput {
+  connect: [BookingWhereUniqueInput!]
+}
+
+input BookingListRelationFilter {
+  every: BookingWhereInput
+  none: BookingWhereInput
+  some: BookingWhereInput
+}
+
+input BookingOrderByInput {
+  cancellationReason: SortOrder
+  createdAt: SortOrder
+  customInputs: SortOrder
+  dailyRefId: SortOrder
+  description: SortOrder
+  destinationCalendarId: SortOrder
+  dynamicEventSlugRef: SortOrder
+  dynamicGroupSlugRef: SortOrder
+  endTime: SortOrder
+  eventTypeId: SortOrder
+  fromReschedule: SortOrder
+  id: SortOrder
+  location: SortOrder
+  paid: SortOrder
+  recurringEventId: SortOrder
+  rejectionReason: SortOrder
+  rescheduled: SortOrder
+  smsReminderNumber: SortOrder
+  startTime: SortOrder
+  status: SortOrder
+  title: SortOrder
+  uid: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+type BookingReference {
+  booking: Booking
+  deleted: Boolean
+  externalCalendarId: String
+  id: Float!
+  meetingId: String
+  meetingPassword: String
+  meetingUrl: String
+  typeField: String!
+  uid: String!
+}
+
+input BookingReferenceCreateInput {
+  booking: BookingWhereUniqueInput
+  deleted: Boolean
+  externalCalendarId: String
+  meetingId: String
+  meetingPassword: String
+  meetingUrl: String
+  typeField: String!
+  uid: String!
+}
+
+input BookingReferenceCreateNestedManyWithoutBookingsInput {
+  connect: [BookingReferenceWhereUniqueInput!]
+}
+
+input BookingReferenceListRelationFilter {
+  every: BookingReferenceWhereInput
+  none: BookingReferenceWhereInput
+  some: BookingReferenceWhereInput
+}
+
+input BookingReferenceOrderByInput {
+  bookingId: SortOrder
+  deleted: SortOrder
+  externalCalendarId: SortOrder
+  id: SortOrder
+  meetingId: SortOrder
+  meetingPassword: SortOrder
+  meetingUrl: SortOrder
+  typeField: SortOrder
+  uid: SortOrder
+}
+
+input BookingReferenceUpdateInput {
+  booking: BookingWhereUniqueInput
+  deleted: Boolean
+  externalCalendarId: String
+  meetingId: String
+  meetingPassword: String
+  meetingUrl: String
+  typeField: String
+  uid: String
+}
+
+input BookingReferenceUpdateManyWithoutBookingsInput {
+  connect: [BookingReferenceWhereUniqueInput!]
+  disconnect: [BookingReferenceWhereUniqueInput!]
+  set: [BookingReferenceWhereUniqueInput!]
+}
+
+input BookingReferenceWhereInput {
+  booking: BookingWhereUniqueInput
+  deleted: BooleanNullableFilter
+  externalCalendarId: StringNullableFilter
+  id: IntFilter
+  meetingId: StringNullableFilter
+  meetingPassword: StringNullableFilter
+  meetingUrl: StringNullableFilter
+  typeField: StringFilter
+  uid: StringFilter
+}
+
+input BookingReferenceWhereUniqueInput {
+  id: Float!
+}
+
+input BookingUpdateInput {
+  attendees: AttendeeUpdateManyWithoutBookingsInput
+  cancellationReason: String
+  customInputs: JSON
+  dailyRef: DailyEventReferenceWhereUniqueInput
+  description: String
+  destinationCalendar: DestinationCalendarWhereUniqueInput
+  dynamicEventSlugRef: String
+  dynamicGroupSlugRef: String
+  endTime: DateTime
+  eventType: EventTypeWhereUniqueInput
+  fromReschedule: String
+  location: String
+  paid: Boolean
+  payment: PaymentUpdateManyWithoutBookingsInput
+  recurringEventId: String
+  references: BookingReferenceUpdateManyWithoutBookingsInput
+  rejectionReason: String
+  rescheduled: Boolean
+  smsReminderNumber: String
+  startTime: DateTime
+  status: EnumBookingStatus
+  title: String
+  uid: String
+  updatedAt: DateTime
+  user: UserWhereUniqueInput
+  workflowReminders: WorkflowReminderUpdateManyWithoutBookingsInput
+}
+
+input BookingUpdateManyWithoutEventTypesInput {
+  connect: [BookingWhereUniqueInput!]
+  disconnect: [BookingWhereUniqueInput!]
+  set: [BookingWhereUniqueInput!]
+}
+
+input BookingUpdateManyWithoutUsersInput {
+  connect: [BookingWhereUniqueInput!]
+  disconnect: [BookingWhereUniqueInput!]
+  set: [BookingWhereUniqueInput!]
+}
+
+input BookingWhereInput {
+  attendees: AttendeeListRelationFilter
+  cancellationReason: StringNullableFilter
+  createdAt: DateTimeFilter
+  customInputs: JsonFilter
+  dailyRef: DailyEventReferenceWhereUniqueInput
+  description: StringNullableFilter
+  destinationCalendar: DestinationCalendarWhereUniqueInput
+  dynamicEventSlugRef: StringNullableFilter
+  dynamicGroupSlugRef: StringNullableFilter
+  endTime: DateTimeFilter
+  eventType: EventTypeWhereUniqueInput
+  fromReschedule: StringNullableFilter
+  id: IntFilter
+  location: StringNullableFilter
+  paid: BooleanFilter
+  payment: PaymentListRelationFilter
+  recurringEventId: StringNullableFilter
+  references: BookingReferenceListRelationFilter
+  rejectionReason: StringNullableFilter
+  rescheduled: BooleanNullableFilter
+  smsReminderNumber: StringNullableFilter
+  startTime: DateTimeFilter
+  status: EnumBookingStatus
+  title: StringFilter
+  uid: StringFilter
+  updatedAt: DateTimeNullableFilter
+  user: UserWhereUniqueInput
+  workflowReminders: WorkflowReminderListRelationFilter
+}
+
+input BookingWhereUniqueInput {
+  id: Float!
+}
+
+input BooleanFilter {
+  equals: Boolean
+  not: Boolean
+}
+
+input BooleanNullableFilter {
+  equals: Boolean
+  not: Boolean
+}
+
+type Credential {
+  app: Application
+  destinationCalendars(orderBy: [DestinationCalendarOrderByInput!], skip: Float, take: Float, where: DestinationCalendarWhereInput): [DestinationCalendar!]!
+  id: Float!
+  key: JSON!
+  typeField: String!
+  user: User
+}
+
+input CredentialCreateInput {
+  app: ApplicationWhereUniqueInput
+  destinationCalendars: DestinationCalendarCreateNestedManyWithoutCredentialsInput
+  key: JSON!
+  typeField: String!
+  user: UserWhereUniqueInput
+}
+
+input CredentialCreateNestedManyWithoutApplicationsInput {
+  connect: [CredentialWhereUniqueInput!]
+}
+
+input CredentialCreateNestedManyWithoutUsersInput {
+  connect: [CredentialWhereUniqueInput!]
+}
+
+input CredentialListRelationFilter {
+  every: CredentialWhereInput
+  none: CredentialWhereInput
+  some: CredentialWhereInput
+}
+
+input CredentialOrderByInput {
+  appId: SortOrder
+  id: SortOrder
+  key: SortOrder
+  typeField: SortOrder
+  userId: SortOrder
+}
+
+input CredentialUpdateInput {
+  app: ApplicationWhereUniqueInput
+  destinationCalendars: DestinationCalendarUpdateManyWithoutCredentialsInput
+  key: JSON
+  typeField: String
+  user: UserWhereUniqueInput
+}
+
+input CredentialUpdateManyWithoutApplicationsInput {
+  connect: [CredentialWhereUniqueInput!]
+  disconnect: [CredentialWhereUniqueInput!]
+  set: [CredentialWhereUniqueInput!]
+}
+
+input CredentialUpdateManyWithoutUsersInput {
+  connect: [CredentialWhereUniqueInput!]
+  disconnect: [CredentialWhereUniqueInput!]
+  set: [CredentialWhereUniqueInput!]
+}
+
+input CredentialWhereInput {
+  app: ApplicationWhereUniqueInput
+  destinationCalendars: DestinationCalendarListRelationFilter
+  id: IntFilter
+  key: JsonFilter
+  typeField: StringFilter
+  user: UserWhereUniqueInput
+}
+
+input CredentialWhereUniqueInput {
+  id: Float!
+}
+
+type DailyEventReference {
+  booking: Booking
+  dailytoken: String!
+  dailyurl: String!
+  id: Float!
+}
+
+input DailyEventReferenceCreateInput {
+  booking: BookingWhereUniqueInput
+  dailytoken: String!
+  dailyurl: String!
+}
+
+input DailyEventReferenceOrderByInput {
+  bookingId: SortOrder
+  dailytoken: SortOrder
+  dailyurl: SortOrder
+  id: SortOrder
+}
+
+input DailyEventReferenceUpdateInput {
+  booking: BookingWhereUniqueInput
+  dailytoken: String
+  dailyurl: String
+}
+
+input DailyEventReferenceWhereInput {
+  booking: BookingWhereUniqueInput
+  dailytoken: StringFilter
+  dailyurl: StringFilter
+  id: IntFilter
+}
+
+input DailyEventReferenceWhereUniqueInput {
+  id: Float!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DateTimeFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: DateTime
+  notIn: [DateTime!]
+}
+
+input DateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: DateTime
+  notIn: [DateTime!]
+}
+
+type DestinationCalendar {
+  booking: Booking
+  credential: Credential
+  eventType: EventType
+  externalId: String!
+  id: Float!
+  integration: String!
+  user: User
+}
+
+input DestinationCalendarCreateInput {
+  booking: BookingWhereUniqueInput
+  credential: CredentialWhereUniqueInput
+  eventType: EventTypeWhereUniqueInput
+  externalId: String!
+  integration: String!
+  user: UserWhereUniqueInput
+}
+
+input DestinationCalendarCreateNestedManyWithoutCredentialsInput {
+  connect: [DestinationCalendarWhereUniqueInput!]
+}
+
+input DestinationCalendarListRelationFilter {
+  every: DestinationCalendarWhereInput
+  none: DestinationCalendarWhereInput
+  some: DestinationCalendarWhereInput
+}
+
+input DestinationCalendarOrderByInput {
+  bookingId: SortOrder
+  credentialId: SortOrder
+  eventTypeId: SortOrder
+  externalId: SortOrder
+  id: SortOrder
+  integration: SortOrder
+  userId: SortOrder
+}
+
+input DestinationCalendarUpdateInput {
+  booking: BookingWhereUniqueInput
+  credential: CredentialWhereUniqueInput
+  eventType: EventTypeWhereUniqueInput
+  externalId: String
+  integration: String
+  user: UserWhereUniqueInput
+}
+
+input DestinationCalendarUpdateManyWithoutCredentialsInput {
+  connect: [DestinationCalendarWhereUniqueInput!]
+  disconnect: [DestinationCalendarWhereUniqueInput!]
+  set: [DestinationCalendarWhereUniqueInput!]
+}
+
+input DestinationCalendarWhereInput {
+  booking: BookingWhereUniqueInput
+  credential: CredentialWhereUniqueInput
+  eventType: EventTypeWhereUniqueInput
+  externalId: StringFilter
+  id: IntFilter
+  integration: StringFilter
+  user: UserWhereUniqueInput
+}
+
+input DestinationCalendarWhereUniqueInput {
+  id: Float!
+}
+
+enum EnumApplicationCategories {
+  Calendar
+  Messaging
+  Other
+  Payment
+  Video
+  Web3
+}
+
+enum EnumBookingStatus {
+  Accepted
+  Cancelled
+  Pending
+  Rejected
+}
+
+enum EnumEventTypeCustomInputType {
+  Bool
+  Number
+  Text
+  Textlong
+}
+
+enum EnumEventTypePeriodType {
+  Range
+  Rolling
+  Unlimited
+}
+
+enum EnumEventTypeSchedulingType {
+  Collective
+  RoundRobin
+}
+
+enum EnumMembershipRole {
+  Admin
+  Member
+  Owner
+}
+
+enum EnumPaymentType {
+  Stripe
+}
+
+enum EnumReminderMailReminderType {
+  PendingBookingConfirmation
+}
+
+enum EnumUserIdentityProvider {
+  Cal
+  Google
+  Saml
+}
+
+enum EnumUserPlan {
+  Free
+  Pro
+  Trial
+}
+
+enum EnumUserRole {
+  Admin
+  User
+}
+
+enum EnumWebhookEventTriggers {
+  BookingCancelled
+  BookingCreated
+  BookingRescheduled
+}
+
+enum EnumWorkflowReminderMethod {
+  Email
+  Sms
+}
+
+enum EnumWorkflowStepAction {
+  EmailAttendee
+  EmailHost
+  SmsAttendee
+  SmsNumber
+}
+
+enum EnumWorkflowStepTemplate {
+  Custom
+  Reminder
+}
+
+enum EnumWorkflowTimeUnit {
+  Day
+  Hour
+  Minute
+}
+
+enum EnumWorkflowTrigger {
+  BeforeEvent
+  EventCancelled
+  NewEvent
+}
+
+type EventType {
+  afterEventBuffer: Float!
+  availability(orderBy: [AvailabilityOrderByInput!], skip: Float, take: Float, where: AvailabilityWhereInput): [Availability!]!
+  beforeEventBuffer: Float!
+  bookings(orderBy: [BookingOrderByInput!], skip: Float, take: Float, where: BookingWhereInput): [Booking!]!
+  currency: String!
+  customInputs(orderBy: [EventTypeCustomInputOrderByInput!], skip: Float, take: Float, where: EventTypeCustomInputWhereInput): [EventTypeCustomInput!]!
+  description: String
+  destinationCalendar: DestinationCalendar
+  disableGuests: Boolean!
+  eventName: String
+  hashedLink: HashedLink
+  hidden: Boolean!
+  hideCalendarNotes: Boolean!
+  id: Float!
+  length: Float!
+  locations: JSON
+  metadata: JSON
+  minimumBookingNotice: Float!
+  periodCountCalendarDays: Boolean
+  periodDays: Float
+  periodEndDate: DateTime
+  periodStartDate: DateTime
+  periodType: EnumEventTypePeriodType
+  position: Float!
+  price: Float!
+  recurringEvent: JSON
+  requiresConfirmation: Boolean!
+  schedule: Schedule
+  schedulingType: EnumEventTypeSchedulingType
+  seatsPerTimeSlot: Float
+  slotInterval: Float
+  slug: String!
+  successRedirectUrl: String
+  team: Team
+  timeZone: String
+  title: String!
+  userId: Float
+  users(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): [User!]!
+  webhooks(orderBy: [WebhookOrderByInput!], skip: Float, take: Float, where: WebhookWhereInput): [Webhook!]!
+  workflows(orderBy: [WorkflowsOnEventTypeOrderByInput!], skip: Float, take: Float, where: WorkflowsOnEventTypeWhereInput): [WorkflowsOnEventType!]!
+}
+
+input EventTypeCreateInput {
+  afterEventBuffer: Float!
+  availability: AvailabilityCreateNestedManyWithoutEventTypesInput
+  beforeEventBuffer: Float!
+  bookings: BookingCreateNestedManyWithoutEventTypesInput
+  currency: String!
+  customInputs: EventTypeCustomInputCreateNestedManyWithoutEventTypesInput
+  description: String
+  destinationCalendar: DestinationCalendarWhereUniqueInput
+  disableGuests: Boolean!
+  eventName: String
+  hashedLink: HashedLinkWhereUniqueInput
+  hidden: Boolean!
+  hideCalendarNotes: Boolean!
+  length: Float!
+  locations: JSON
+  metadata: JSON
+  minimumBookingNotice: Float!
+  periodCountCalendarDays: Boolean
+  periodDays: Float
+  periodEndDate: DateTime
+  periodStartDate: DateTime
+  periodType: EnumEventTypePeriodType!
+  position: Float!
+  price: Float!
+  recurringEvent: JSON
+  requiresConfirmation: Boolean!
+  schedule: ScheduleWhereUniqueInput
+  schedulingType: EnumEventTypeSchedulingType
+  seatsPerTimeSlot: Float
+  slotInterval: Float
+  slug: String!
+  successRedirectUrl: String
+  team: TeamWhereUniqueInput
+  timeZone: String
+  title: String!
+  userId: Float
+  users: UserCreateNestedManyWithoutEventTypesInput
+  webhooks: WebhookCreateNestedManyWithoutEventTypesInput
+  workflows: WorkflowsOnEventTypeCreateNestedManyWithoutEventTypesInput
+}
+
+input EventTypeCreateNestedManyWithoutSchedulesInput {
+  connect: [EventTypeWhereUniqueInput!]
+}
+
+input EventTypeCreateNestedManyWithoutTeamsInput {
+  connect: [EventTypeWhereUniqueInput!]
+}
+
+input EventTypeCreateNestedManyWithoutUsersInput {
+  connect: [EventTypeWhereUniqueInput!]
+}
+
+type EventTypeCustomInput {
+  eventType: EventType
+  id: Float!
+  label: String!
+  placeholder: String!
+  required: Boolean!
+  type: EnumEventTypeCustomInputType
+}
+
+input EventTypeCustomInputCreateInput {
+  eventType: EventTypeWhereUniqueInput!
+  label: String!
+  placeholder: String!
+  required: Boolean!
+  type: EnumEventTypeCustomInputType!
+}
+
+input EventTypeCustomInputCreateNestedManyWithoutEventTypesInput {
+  connect: [EventTypeCustomInputWhereUniqueInput!]
+}
+
+input EventTypeCustomInputListRelationFilter {
+  every: EventTypeCustomInputWhereInput
+  none: EventTypeCustomInputWhereInput
+  some: EventTypeCustomInputWhereInput
+}
+
+input EventTypeCustomInputOrderByInput {
+  eventTypeId: SortOrder
+  id: SortOrder
+  label: SortOrder
+  placeholder: SortOrder
+  required: SortOrder
+  type: SortOrder
+}
+
+input EventTypeCustomInputUpdateInput {
+  eventType: EventTypeWhereUniqueInput
+  label: String
+  placeholder: String
+  required: Boolean
+  type: EnumEventTypeCustomInputType
+}
+
+input EventTypeCustomInputUpdateManyWithoutEventTypesInput {
+  connect: [EventTypeCustomInputWhereUniqueInput!]
+  disconnect: [EventTypeCustomInputWhereUniqueInput!]
+  set: [EventTypeCustomInputWhereUniqueInput!]
+}
+
+input EventTypeCustomInputWhereInput {
+  eventType: EventTypeWhereUniqueInput
+  id: IntFilter
+  label: StringFilter
+  placeholder: StringFilter
+  required: BooleanFilter
+  type: EnumEventTypeCustomInputType
+}
+
+input EventTypeCustomInputWhereUniqueInput {
+  id: Float!
+}
+
+input EventTypeListRelationFilter {
+  every: EventTypeWhereInput
+  none: EventTypeWhereInput
+  some: EventTypeWhereInput
+}
+
+input EventTypeOrderByInput {
+  afterEventBuffer: SortOrder
+  beforeEventBuffer: SortOrder
+  currency: SortOrder
+  description: SortOrder
+  destinationCalendarId: SortOrder
+  disableGuests: SortOrder
+  eventName: SortOrder
+  hashedLinkId: SortOrder
+  hidden: SortOrder
+  hideCalendarNotes: SortOrder
+  id: SortOrder
+  length: SortOrder
+  locations: SortOrder
+  metadata: SortOrder
+  minimumBookingNotice: SortOrder
+  periodCountCalendarDays: SortOrder
+  periodDays: SortOrder
+  periodEndDate: SortOrder
+  periodStartDate: SortOrder
+  periodType: SortOrder
+  position: SortOrder
+  price: SortOrder
+  recurringEvent: SortOrder
+  requiresConfirmation: SortOrder
+  scheduleId: SortOrder
+  schedulingType: SortOrder
+  seatsPerTimeSlot: SortOrder
+  slotInterval: SortOrder
+  slug: SortOrder
+  successRedirectUrl: SortOrder
+  teamId: SortOrder
+  timeZone: SortOrder
+  title: SortOrder
+  userId: SortOrder
+}
+
+input EventTypeUpdateInput {
+  afterEventBuffer: Float
+  availability: AvailabilityUpdateManyWithoutEventTypesInput
+  beforeEventBuffer: Float
+  bookings: BookingUpdateManyWithoutEventTypesInput
+  currency: String
+  customInputs: EventTypeCustomInputUpdateManyWithoutEventTypesInput
+  description: String
+  destinationCalendar: DestinationCalendarWhereUniqueInput
+  disableGuests: Boolean
+  eventName: String
+  hashedLink: HashedLinkWhereUniqueInput
+  hidden: Boolean
+  hideCalendarNotes: Boolean
+  length: Float
+  locations: JSON
+  metadata: JSON
+  minimumBookingNotice: Float
+  periodCountCalendarDays: Boolean
+  periodDays: Float
+  periodEndDate: DateTime
+  periodStartDate: DateTime
+  periodType: EnumEventTypePeriodType
+  position: Float
+  price: Float
+  recurringEvent: JSON
+  requiresConfirmation: Boolean
+  schedule: ScheduleWhereUniqueInput
+  schedulingType: EnumEventTypeSchedulingType
+  seatsPerTimeSlot: Float
+  slotInterval: Float
+  slug: String
+  successRedirectUrl: String
+  team: TeamWhereUniqueInput
+  timeZone: String
+  title: String
+  userId: Float
+  users: UserUpdateManyWithoutEventTypesInput
+  webhooks: WebhookUpdateManyWithoutEventTypesInput
+  workflows: WorkflowsOnEventTypeUpdateManyWithoutEventTypesInput
+}
+
+input EventTypeUpdateManyWithoutSchedulesInput {
+  connect: [EventTypeWhereUniqueInput!]
+  disconnect: [EventTypeWhereUniqueInput!]
+  set: [EventTypeWhereUniqueInput!]
+}
+
+input EventTypeUpdateManyWithoutTeamsInput {
+  connect: [EventTypeWhereUniqueInput!]
+  disconnect: [EventTypeWhereUniqueInput!]
+  set: [EventTypeWhereUniqueInput!]
+}
+
+input EventTypeUpdateManyWithoutUsersInput {
+  connect: [EventTypeWhereUniqueInput!]
+  disconnect: [EventTypeWhereUniqueInput!]
+  set: [EventTypeWhereUniqueInput!]
+}
+
+input EventTypeWhereInput {
+  afterEventBuffer: IntFilter
+  availability: AvailabilityListRelationFilter
+  beforeEventBuffer: IntFilter
+  bookings: BookingListRelationFilter
+  currency: StringFilter
+  customInputs: EventTypeCustomInputListRelationFilter
+  description: StringNullableFilter
+  destinationCalendar: DestinationCalendarWhereUniqueInput
+  disableGuests: BooleanFilter
+  eventName: StringNullableFilter
+  hashedLink: HashedLinkWhereUniqueInput
+  hidden: BooleanFilter
+  hideCalendarNotes: BooleanFilter
+  id: IntFilter
+  length: IntFilter
+  locations: JsonFilter
+  metadata: JsonFilter
+  minimumBookingNotice: IntFilter
+  periodCountCalendarDays: BooleanNullableFilter
+  periodDays: IntNullableFilter
+  periodEndDate: DateTimeNullableFilter
+  periodStartDate: DateTimeNullableFilter
+  periodType: EnumEventTypePeriodType
+  position: IntFilter
+  price: IntFilter
+  recurringEvent: JsonFilter
+  requiresConfirmation: BooleanFilter
+  schedule: ScheduleWhereUniqueInput
+  schedulingType: EnumEventTypeSchedulingType
+  seatsPerTimeSlot: IntNullableFilter
+  slotInterval: IntNullableFilter
+  slug: StringFilter
+  successRedirectUrl: StringNullableFilter
+  team: TeamWhereUniqueInput
+  timeZone: StringNullableFilter
+  title: StringFilter
+  userId: IntNullableFilter
+  users: UserListRelationFilter
+  webhooks: WebhookListRelationFilter
+  workflows: WorkflowsOnEventTypeListRelationFilter
+}
+
+input EventTypeWhereUniqueInput {
+  id: Float!
+}
+
+type Feedback {
+  comment: String
+  date: DateTime!
+  id: Float!
+  rating: String!
+  user: User
+}
+
+input FeedbackCreateInput {
+  comment: String
+  date: DateTime!
+  rating: String!
+  user: UserWhereUniqueInput!
+}
+
+input FeedbackCreateNestedManyWithoutUsersInput {
+  connect: [FeedbackWhereUniqueInput!]
+}
+
+input FeedbackListRelationFilter {
+  every: FeedbackWhereInput
+  none: FeedbackWhereInput
+  some: FeedbackWhereInput
+}
+
+input FeedbackOrderByInput {
+  comment: SortOrder
+  date: SortOrder
+  id: SortOrder
+  rating: SortOrder
+  userId: SortOrder
+}
+
+input FeedbackUpdateInput {
+  comment: String
+  date: DateTime
+  rating: String
+  user: UserWhereUniqueInput
+}
+
+input FeedbackUpdateManyWithoutUsersInput {
+  connect: [FeedbackWhereUniqueInput!]
+  disconnect: [FeedbackWhereUniqueInput!]
+  set: [FeedbackWhereUniqueInput!]
+}
+
+input FeedbackWhereInput {
+  comment: StringNullableFilter
+  date: DateTimeFilter
+  id: IntFilter
+  rating: StringFilter
+  user: UserWhereUniqueInput
+}
+
+input FeedbackWhereUniqueInput {
+  id: Float!
+}
+
+type HashedLink {
+  eventType: EventType
+  id: Float!
+  link: String!
+}
+
+input HashedLinkCreateInput {
+  eventType: EventTypeWhereUniqueInput!
+  link: String!
+}
+
+input HashedLinkOrderByInput {
+  eventTypeId: SortOrder
+  id: SortOrder
+  link: SortOrder
+}
+
+input HashedLinkUpdateInput {
+  eventType: EventTypeWhereUniqueInput
+  link: String
+}
+
+input HashedLinkWhereInput {
+  eventType: EventTypeWhereUniqueInput
+  id: IntFilter
+  link: StringFilter
+}
+
+input HashedLinkWhereUniqueInput {
+  id: Float!
+}
+
+type Impersonation {
+  createdAt: DateTime!
+  id: Float!
+  impersonatedBy: User
+  impersonatedUser: User
+}
+
+input ImpersonationCreateInput {
+  impersonatedBy: UserWhereUniqueInput!
+  impersonatedUser: UserWhereUniqueInput!
+}
+
+input ImpersonationCreateNestedManyWithoutUsersInput {
+  connect: [ImpersonationWhereUniqueInput!]
+}
+
+input ImpersonationListRelationFilter {
+  every: ImpersonationWhereInput
+  none: ImpersonationWhereInput
+  some: ImpersonationWhereInput
+}
+
+input ImpersonationOrderByInput {
+  createdAt: SortOrder
+  id: SortOrder
+  impersonatedById: SortOrder
+  impersonatedUserId: SortOrder
+}
+
+input ImpersonationUpdateInput {
+  impersonatedBy: UserWhereUniqueInput
+  impersonatedUser: UserWhereUniqueInput
+}
+
+input ImpersonationUpdateManyWithoutUsersInput {
+  connect: [ImpersonationWhereUniqueInput!]
+  disconnect: [ImpersonationWhereUniqueInput!]
+  set: [ImpersonationWhereUniqueInput!]
+}
+
+input ImpersonationWhereInput {
+  createdAt: DateTimeFilter
+  id: IntFilter
+  impersonatedBy: UserWhereUniqueInput
+  impersonatedUser: UserWhereUniqueInput
+}
+
+input ImpersonationWhereUniqueInput {
+  id: Float!
+}
+
+input IntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: Int
+  notIn: [Int!]
+}
+
+input IntNullableFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: Int
+  notIn: [Int!]
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+input JsonFilter {
+  equals: JSONObject
+  not: JSONObject
+}
+
+type Membership {
+  accepted: Boolean!
+  id: Float!
+  role: EnumMembershipRole
+  team: Team
+  user: User
+}
+
+input MembershipCreateInput {
+  accepted: Boolean!
+  role: EnumMembershipRole!
+  team: TeamWhereUniqueInput!
+  user: UserWhereUniqueInput!
+}
+
+input MembershipCreateNestedManyWithoutTeamsInput {
+  connect: [MembershipWhereUniqueInput!]
+}
+
+input MembershipCreateNestedManyWithoutUsersInput {
+  connect: [MembershipWhereUniqueInput!]
+}
+
+input MembershipListRelationFilter {
+  every: MembershipWhereInput
+  none: MembershipWhereInput
+  some: MembershipWhereInput
+}
+
+input MembershipOrderByInput {
+  accepted: SortOrder
+  id: SortOrder
+  role: SortOrder
+  teamId: SortOrder
+  userId: SortOrder
+}
+
+input MembershipUpdateInput {
+  accepted: Boolean
+  role: EnumMembershipRole
+  team: TeamWhereUniqueInput
+  user: UserWhereUniqueInput
+}
+
+input MembershipUpdateManyWithoutTeamsInput {
+  connect: [MembershipWhereUniqueInput!]
+  disconnect: [MembershipWhereUniqueInput!]
+  set: [MembershipWhereUniqueInput!]
+}
+
+input MembershipUpdateManyWithoutUsersInput {
+  connect: [MembershipWhereUniqueInput!]
+  disconnect: [MembershipWhereUniqueInput!]
+  set: [MembershipWhereUniqueInput!]
+}
+
+input MembershipWhereInput {
+  accepted: BooleanFilter
+  id: IntFilter
+  role: EnumMembershipRole
+  team: TeamWhereUniqueInput
+  user: UserWhereUniqueInput
+}
+
+input MembershipWhereUniqueInput {
+  id: Float!
+}
+
+type Mutation {
+  createAccount(data: AccountCreateInput!): Account!
+  createApiKey(data: ApiKeyCreateInput!): ApiKey!
+  createApplication(data: ApplicationCreateInput!): Application!
+  createAttendee(data: AttendeeCreateInput!): Attendee!
+  createAvailability(data: AvailabilityCreateInput!): Availability!
+  createBooking(data: BookingCreateInput!): Booking!
+  createBookingReference(data: BookingReferenceCreateInput!): BookingReference!
+  createCredential(data: CredentialCreateInput!): Credential!
+  createDailyEventReference(data: DailyEventReferenceCreateInput!): DailyEventReference!
+  createDestinationCalendar(data: DestinationCalendarCreateInput!): DestinationCalendar!
+  createEventType(data: EventTypeCreateInput!): EventType!
+  createEventTypeCustomInput(data: EventTypeCustomInputCreateInput!): EventTypeCustomInput!
+  createFeedback(data: FeedbackCreateInput!): Feedback!
+  createHashedLink(data: HashedLinkCreateInput!): HashedLink!
+  createImpersonation(data: ImpersonationCreateInput!): Impersonation!
+  createMembership(data: MembershipCreateInput!): Membership!
+  createPayment(data: PaymentCreateInput!): Payment!
+  createReminderMail(data: ReminderMailCreateInput!): ReminderMail!
+  createResetPasswordRequest(data: ResetPasswordRequestCreateInput!): ResetPasswordRequest!
+  createSchedule(data: ScheduleCreateInput!): Schedule!
+  createSelectedCalendar(data: SelectedCalendarCreateInput!): SelectedCalendar!
+  createSession(data: SessionCreateInput!): Session!
+  createTeam(data: TeamCreateInput!): Team!
+  createUser(data: UserCreateInput!): User!
+  createVerificationToken(data: VerificationTokenCreateInput!): VerificationToken!
+  createWebhook(data: WebhookCreateInput!): Webhook!
+  createWorkflow(data: WorkflowCreateInput!): Workflow!
+  createWorkflowReminder(data: WorkflowReminderCreateInput!): WorkflowReminder!
+  createWorkflowStep(data: WorkflowStepCreateInput!): WorkflowStep!
+  createWorkflowsOnEventType(data: WorkflowsOnEventTypeCreateInput!): WorkflowsOnEventType!
+  deleteAccount(where: AccountWhereUniqueInput!): Account!
+  deleteApiKey(where: ApiKeyWhereUniqueInput!): ApiKey!
+  deleteApplication(where: ApplicationWhereUniqueInput!): Application!
+  deleteAttendee(where: AttendeeWhereUniqueInput!): Attendee!
+  deleteAvailability(where: AvailabilityWhereUniqueInput!): Availability!
+  deleteBooking(where: BookingWhereUniqueInput!): Booking!
+  deleteBookingReference(where: BookingReferenceWhereUniqueInput!): BookingReference!
+  deleteCredential(where: CredentialWhereUniqueInput!): Credential!
+  deleteDailyEventReference(where: DailyEventReferenceWhereUniqueInput!): DailyEventReference!
+  deleteDestinationCalendar(where: DestinationCalendarWhereUniqueInput!): DestinationCalendar!
+  deleteEventType(where: EventTypeWhereUniqueInput!): EventType!
+  deleteEventTypeCustomInput(where: EventTypeCustomInputWhereUniqueInput!): EventTypeCustomInput!
+  deleteFeedback(where: FeedbackWhereUniqueInput!): Feedback!
+  deleteHashedLink(where: HashedLinkWhereUniqueInput!): HashedLink!
+  deleteImpersonation(where: ImpersonationWhereUniqueInput!): Impersonation!
+  deleteMembership(where: MembershipWhereUniqueInput!): Membership!
+  deletePayment(where: PaymentWhereUniqueInput!): Payment!
+  deleteReminderMail(where: ReminderMailWhereUniqueInput!): ReminderMail!
+  deleteResetPasswordRequest(where: ResetPasswordRequestWhereUniqueInput!): ResetPasswordRequest!
+  deleteSchedule(where: ScheduleWhereUniqueInput!): Schedule!
+  deleteSelectedCalendar(where: SelectedCalendarWhereUniqueInput!): SelectedCalendar!
+  deleteSession(where: SessionWhereUniqueInput!): Session!
+  deleteTeam(where: TeamWhereUniqueInput!): Team!
+  deleteUser(where: UserWhereUniqueInput!): User!
+  deleteVerificationToken(where: VerificationTokenWhereUniqueInput!): VerificationToken!
+  deleteWebhook(where: WebhookWhereUniqueInput!): Webhook!
+  deleteWorkflow(where: WorkflowWhereUniqueInput!): Workflow!
+  deleteWorkflowReminder(where: WorkflowReminderWhereUniqueInput!): WorkflowReminder!
+  deleteWorkflowStep(where: WorkflowStepWhereUniqueInput!): WorkflowStep!
+  deleteWorkflowsOnEventType(where: WorkflowsOnEventTypeWhereUniqueInput!): WorkflowsOnEventType!
+  updateAccount(data: AccountUpdateInput!, where: AccountWhereUniqueInput!): Account!
+  updateApiKey(data: ApiKeyUpdateInput!, where: ApiKeyWhereUniqueInput!): ApiKey!
+  updateApplication(data: ApplicationUpdateInput!, where: ApplicationWhereUniqueInput!): Application!
+  updateAttendee(data: AttendeeUpdateInput!, where: AttendeeWhereUniqueInput!): Attendee!
+  updateAvailability(data: AvailabilityUpdateInput!, where: AvailabilityWhereUniqueInput!): Availability!
+  updateBooking(data: BookingUpdateInput!, where: BookingWhereUniqueInput!): Booking!
+  updateBookingReference(data: BookingReferenceUpdateInput!, where: BookingReferenceWhereUniqueInput!): BookingReference!
+  updateCredential(data: CredentialUpdateInput!, where: CredentialWhereUniqueInput!): Credential!
+  updateDailyEventReference(data: DailyEventReferenceUpdateInput!, where: DailyEventReferenceWhereUniqueInput!): DailyEventReference!
+  updateDestinationCalendar(data: DestinationCalendarUpdateInput!, where: DestinationCalendarWhereUniqueInput!): DestinationCalendar!
+  updateEventType(data: EventTypeUpdateInput!, where: EventTypeWhereUniqueInput!): EventType!
+  updateEventTypeCustomInput(data: EventTypeCustomInputUpdateInput!, where: EventTypeCustomInputWhereUniqueInput!): EventTypeCustomInput!
+  updateFeedback(data: FeedbackUpdateInput!, where: FeedbackWhereUniqueInput!): Feedback!
+  updateHashedLink(data: HashedLinkUpdateInput!, where: HashedLinkWhereUniqueInput!): HashedLink!
+  updateImpersonation(data: ImpersonationUpdateInput!, where: ImpersonationWhereUniqueInput!): Impersonation!
+  updateMembership(data: MembershipUpdateInput!, where: MembershipWhereUniqueInput!): Membership!
+  updatePayment(data: PaymentUpdateInput!, where: PaymentWhereUniqueInput!): Payment!
+  updateReminderMail(data: ReminderMailUpdateInput!, where: ReminderMailWhereUniqueInput!): ReminderMail!
+  updateResetPasswordRequest(data: ResetPasswordRequestUpdateInput!, where: ResetPasswordRequestWhereUniqueInput!): ResetPasswordRequest!
+  updateSchedule(data: ScheduleUpdateInput!, where: ScheduleWhereUniqueInput!): Schedule!
+  updateSelectedCalendar(data: SelectedCalendarUpdateInput!, where: SelectedCalendarWhereUniqueInput!): SelectedCalendar!
+  updateSession(data: SessionUpdateInput!, where: SessionWhereUniqueInput!): Session!
+  updateTeam(data: TeamUpdateInput!, where: TeamWhereUniqueInput!): Team!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
+  updateVerificationToken(data: VerificationTokenUpdateInput!, where: VerificationTokenWhereUniqueInput!): VerificationToken!
+  updateWebhook(data: WebhookUpdateInput!, where: WebhookWhereUniqueInput!): Webhook!
+  updateWorkflow(data: WorkflowUpdateInput!, where: WorkflowWhereUniqueInput!): Workflow!
+  updateWorkflowReminder(data: WorkflowReminderUpdateInput!, where: WorkflowReminderWhereUniqueInput!): WorkflowReminder!
+  updateWorkflowStep(data: WorkflowStepUpdateInput!, where: WorkflowStepWhereUniqueInput!): WorkflowStep!
+  updateWorkflowsOnEventType(data: WorkflowsOnEventTypeUpdateInput!, where: WorkflowsOnEventTypeWhereUniqueInput!): WorkflowsOnEventType!
+}
+
+type Payment {
+  amount: Float!
+  booking: Booking
+  currency: String!
+  data: JSON!
+  externalId: String!
+  fee: Float!
+  id: Float!
+  refunded: Boolean!
+  success: Boolean!
+  type: EnumPaymentType
+  uid: String!
+}
+
+input PaymentCreateInput {
+  amount: Float!
+  booking: BookingWhereUniqueInput
+  currency: String!
+  data: JSON!
+  externalId: String!
+  fee: Float!
+  refunded: Boolean!
+  success: Boolean!
+  type: EnumPaymentType!
+  uid: String!
+}
+
+input PaymentCreateNestedManyWithoutBookingsInput {
+  connect: [PaymentWhereUniqueInput!]
+}
+
+input PaymentListRelationFilter {
+  every: PaymentWhereInput
+  none: PaymentWhereInput
+  some: PaymentWhereInput
+}
+
+input PaymentOrderByInput {
+  amount: SortOrder
+  bookingId: SortOrder
+  currency: SortOrder
+  data: SortOrder
+  externalId: SortOrder
+  fee: SortOrder
+  id: SortOrder
+  refunded: SortOrder
+  success: SortOrder
+  type: SortOrder
+  uid: SortOrder
+}
+
+input PaymentUpdateInput {
+  amount: Float
+  booking: BookingWhereUniqueInput
+  currency: String
+  data: JSON
+  externalId: String
+  fee: Float
+  refunded: Boolean
+  success: Boolean
+  type: EnumPaymentType
+  uid: String
+}
+
+input PaymentUpdateManyWithoutBookingsInput {
+  connect: [PaymentWhereUniqueInput!]
+  disconnect: [PaymentWhereUniqueInput!]
+  set: [PaymentWhereUniqueInput!]
+}
+
+input PaymentWhereInput {
+  amount: IntFilter
+  booking: BookingWhereUniqueInput
+  currency: StringFilter
+  data: JsonFilter
+  externalId: StringFilter
+  fee: IntFilter
+  id: IntFilter
+  refunded: BooleanFilter
+  success: BooleanFilter
+  type: EnumPaymentType
+  uid: StringFilter
+}
+
+input PaymentWhereUniqueInput {
+  id: Float!
+}
+
+type Query {
+  account(where: AccountWhereUniqueInput!): Account
+  accounts(orderBy: [AccountOrderByInput!], skip: Float, take: Float, where: AccountWhereInput): [Account!]!
+  apiKey(where: ApiKeyWhereUniqueInput!): ApiKey
+  apiKeys(orderBy: [ApiKeyOrderByInput!], skip: Float, take: Float, where: ApiKeyWhereInput): [ApiKey!]!
+  application(where: ApplicationWhereUniqueInput!): Application
+  applications(orderBy: [ApplicationOrderByInput!], skip: Float, take: Float, where: ApplicationWhereInput): [Application!]!
+  attendee(where: AttendeeWhereUniqueInput!): Attendee
+  attendees(orderBy: [AttendeeOrderByInput!], skip: Float, take: Float, where: AttendeeWhereInput): [Attendee!]!
+  availabilities(orderBy: [AvailabilityOrderByInput!], skip: Float, take: Float, where: AvailabilityWhereInput): [Availability!]!
+  availability(where: AvailabilityWhereUniqueInput!): Availability
+  booking(where: BookingWhereUniqueInput!): Booking
+  bookingReference(where: BookingReferenceWhereUniqueInput!): BookingReference
+  bookingReferences(orderBy: [BookingReferenceOrderByInput!], skip: Float, take: Float, where: BookingReferenceWhereInput): [BookingReference!]!
+  bookings(orderBy: [BookingOrderByInput!], skip: Float, take: Float, where: BookingWhereInput): [Booking!]!
+  credential(where: CredentialWhereUniqueInput!): Credential
+  credentials(orderBy: [CredentialOrderByInput!], skip: Float, take: Float, where: CredentialWhereInput): [Credential!]!
+  dailyEventReference(where: DailyEventReferenceWhereUniqueInput!): DailyEventReference
+  dailyEventReferences(orderBy: [DailyEventReferenceOrderByInput!], skip: Float, take: Float, where: DailyEventReferenceWhereInput): [DailyEventReference!]!
+  destinationCalendar(where: DestinationCalendarWhereUniqueInput!): DestinationCalendar
+  destinationCalendars(orderBy: [DestinationCalendarOrderByInput!], skip: Float, take: Float, where: DestinationCalendarWhereInput): [DestinationCalendar!]!
+  eventType(where: EventTypeWhereUniqueInput!): EventType
+  eventTypeCustomInput(where: EventTypeCustomInputWhereUniqueInput!): EventTypeCustomInput
+  eventTypeCustomInputs(orderBy: [EventTypeCustomInputOrderByInput!], skip: Float, take: Float, where: EventTypeCustomInputWhereInput): [EventTypeCustomInput!]!
+  eventTypes(orderBy: [EventTypeOrderByInput!], skip: Float, take: Float, where: EventTypeWhereInput): [EventType!]!
+  feedback(where: FeedbackWhereUniqueInput!): Feedback
+  feedbacks(orderBy: [FeedbackOrderByInput!], skip: Float, take: Float, where: FeedbackWhereInput): [Feedback!]!
+  hashedLink(where: HashedLinkWhereUniqueInput!): HashedLink
+  hashedLinks(orderBy: [HashedLinkOrderByInput!], skip: Float, take: Float, where: HashedLinkWhereInput): [HashedLink!]!
+  impersonation(where: ImpersonationWhereUniqueInput!): Impersonation
+  impersonations(orderBy: [ImpersonationOrderByInput!], skip: Float, take: Float, where: ImpersonationWhereInput): [Impersonation!]!
+  membership(where: MembershipWhereUniqueInput!): Membership
+  memberships(orderBy: [MembershipOrderByInput!], skip: Float, take: Float, where: MembershipWhereInput): [Membership!]!
+  payment(where: PaymentWhereUniqueInput!): Payment
+  payments(orderBy: [PaymentOrderByInput!], skip: Float, take: Float, where: PaymentWhereInput): [Payment!]!
+  reminderMail(where: ReminderMailWhereUniqueInput!): ReminderMail
+  reminderMails(orderBy: [ReminderMailOrderByInput!], skip: Float, take: Float, where: ReminderMailWhereInput): [ReminderMail!]!
+  resetPasswordRequest(where: ResetPasswordRequestWhereUniqueInput!): ResetPasswordRequest
+  resetPasswordRequests(orderBy: [ResetPasswordRequestOrderByInput!], skip: Float, take: Float, where: ResetPasswordRequestWhereInput): [ResetPasswordRequest!]!
+  schedule(where: ScheduleWhereUniqueInput!): Schedule
+  schedules(orderBy: [ScheduleOrderByInput!], skip: Float, take: Float, where: ScheduleWhereInput): [Schedule!]!
+  selectedCalendar(where: SelectedCalendarWhereUniqueInput!): SelectedCalendar
+  selectedCalendars(orderBy: [SelectedCalendarOrderByInput!], skip: Float, take: Float, where: SelectedCalendarWhereInput): [SelectedCalendar!]!
+  session(where: SessionWhereUniqueInput!): Session
+  sessions(orderBy: [SessionOrderByInput!], skip: Float, take: Float, where: SessionWhereInput): [Session!]!
+  team(where: TeamWhereUniqueInput!): Team
+  teams(orderBy: [TeamOrderByInput!], skip: Float, take: Float, where: TeamWhereInput): [Team!]!
+  user(where: UserWhereUniqueInput!): User
+  users(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): [User!]!
+  verificationToken(where: VerificationTokenWhereUniqueInput!): VerificationToken
+  verificationTokens(orderBy: [VerificationTokenOrderByInput!], skip: Float, take: Float, where: VerificationTokenWhereInput): [VerificationToken!]!
+  webhook(where: WebhookWhereUniqueInput!): Webhook
+  webhooks(orderBy: [WebhookOrderByInput!], skip: Float, take: Float, where: WebhookWhereInput): [Webhook!]!
+  workflow(where: WorkflowWhereUniqueInput!): Workflow
+  workflowReminder(where: WorkflowReminderWhereUniqueInput!): WorkflowReminder
+  workflowReminders(orderBy: [WorkflowReminderOrderByInput!], skip: Float, take: Float, where: WorkflowReminderWhereInput): [WorkflowReminder!]!
+  workflowStep(where: WorkflowStepWhereUniqueInput!): WorkflowStep
+  workflowSteps(orderBy: [WorkflowStepOrderByInput!], skip: Float, take: Float, where: WorkflowStepWhereInput): [WorkflowStep!]!
+  workflows(orderBy: [WorkflowOrderByInput!], skip: Float, take: Float, where: WorkflowWhereInput): [Workflow!]!
+  workflowsOnEventType(where: WorkflowsOnEventTypeWhereUniqueInput!): WorkflowsOnEventType
+  workflowsOnEventTypes(orderBy: [WorkflowsOnEventTypeOrderByInput!], skip: Float, take: Float, where: WorkflowsOnEventTypeWhereInput): [WorkflowsOnEventType!]!
+}
+
+enum QueryMode {
+  Default
+  Insensitive
+}
+
+type ReminderMail {
+  createdAt: DateTime!
+  elapsedMinutes: Float!
+  id: Float!
+  referenceId: Float!
+  reminderType: EnumReminderMailReminderType
+}
+
+input ReminderMailCreateInput {
+  elapsedMinutes: Float!
+  referenceId: Float!
+  reminderType: EnumReminderMailReminderType!
+}
+
+input ReminderMailOrderByInput {
+  createdAt: SortOrder
+  elapsedMinutes: SortOrder
+  id: SortOrder
+  referenceId: SortOrder
+  reminderType: SortOrder
+}
+
+input ReminderMailUpdateInput {
+  elapsedMinutes: Float
+  referenceId: Float
+  reminderType: EnumReminderMailReminderType
+}
+
+input ReminderMailWhereInput {
+  createdAt: DateTimeFilter
+  elapsedMinutes: IntFilter
+  id: IntFilter
+  referenceId: IntFilter
+  reminderType: EnumReminderMailReminderType
+}
+
+input ReminderMailWhereUniqueInput {
+  id: Float!
+}
+
+type ResetPasswordRequest {
+  createdAt: DateTime!
+  email: String!
+  expires: DateTime!
+  id: String!
+  updatedAt: DateTime!
+}
+
+input ResetPasswordRequestCreateInput {
+  email: String!
+  expires: DateTime!
+}
+
+input ResetPasswordRequestOrderByInput {
+  createdAt: SortOrder
+  email: SortOrder
+  expires: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+}
+
+input ResetPasswordRequestUpdateInput {
+  email: String
+  expires: DateTime
+}
+
+input ResetPasswordRequestWhereInput {
+  createdAt: DateTimeFilter
+  email: StringFilter
+  expires: DateTimeFilter
+  id: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input ResetPasswordRequestWhereUniqueInput {
+  id: String!
+}
+
+type Schedule {
+  availability(orderBy: [AvailabilityOrderByInput!], skip: Float, take: Float, where: AvailabilityWhereInput): [Availability!]!
+  eventType(orderBy: [EventTypeOrderByInput!], skip: Float, take: Float, where: EventTypeWhereInput): [EventType!]!
+  id: Float!
+  name: String!
+  timeZone: String
+  user: User
+}
+
+input ScheduleCreateInput {
+  availability: AvailabilityCreateNestedManyWithoutSchedulesInput
+  eventType: EventTypeCreateNestedManyWithoutSchedulesInput
+  name: String!
+  timeZone: String
+  user: UserWhereUniqueInput!
+}
+
+input ScheduleCreateNestedManyWithoutUsersInput {
+  connect: [ScheduleWhereUniqueInput!]
+}
+
+input ScheduleListRelationFilter {
+  every: ScheduleWhereInput
+  none: ScheduleWhereInput
+  some: ScheduleWhereInput
+}
+
+input ScheduleOrderByInput {
+  id: SortOrder
+  name: SortOrder
+  timeZone: SortOrder
+  userId: SortOrder
+}
+
+input ScheduleUpdateInput {
+  availability: AvailabilityUpdateManyWithoutSchedulesInput
+  eventType: EventTypeUpdateManyWithoutSchedulesInput
+  name: String
+  timeZone: String
+  user: UserWhereUniqueInput
+}
+
+input ScheduleUpdateManyWithoutUsersInput {
+  connect: [ScheduleWhereUniqueInput!]
+  disconnect: [ScheduleWhereUniqueInput!]
+  set: [ScheduleWhereUniqueInput!]
+}
+
+input ScheduleWhereInput {
+  availability: AvailabilityListRelationFilter
+  eventType: EventTypeListRelationFilter
+  id: IntFilter
+  name: StringFilter
+  timeZone: StringNullableFilter
+  user: UserWhereUniqueInput
+}
+
+input ScheduleWhereUniqueInput {
+  id: Float!
+}
+
+type SelectedCalendar {
+  externalId: String!
+  id: Float!
+  integration: String!
+  user: User
+}
+
+input SelectedCalendarCreateInput {
+  externalId: String!
+  integration: String!
+  user: UserWhereUniqueInput!
+}
+
+input SelectedCalendarCreateNestedManyWithoutUsersInput {
+  connect: [SelectedCalendarWhereUniqueInput!]
+}
+
+input SelectedCalendarListRelationFilter {
+  every: SelectedCalendarWhereInput
+  none: SelectedCalendarWhereInput
+  some: SelectedCalendarWhereInput
+}
+
+input SelectedCalendarOrderByInput {
+  externalId: SortOrder
+  id: SortOrder
+  integration: SortOrder
+  userId: SortOrder
+}
+
+input SelectedCalendarUpdateInput {
+  externalId: String
+  integration: String
+  user: UserWhereUniqueInput
+}
+
+input SelectedCalendarUpdateManyWithoutUsersInput {
+  connect: [SelectedCalendarWhereUniqueInput!]
+  disconnect: [SelectedCalendarWhereUniqueInput!]
+  set: [SelectedCalendarWhereUniqueInput!]
+}
+
+input SelectedCalendarWhereInput {
+  externalId: StringFilter
+  id: IntFilter
+  integration: StringFilter
+  user: UserWhereUniqueInput
+}
+
+input SelectedCalendarWhereUniqueInput {
+  id: Float!
+}
+
+type Session {
+  expires: DateTime!
+  id: String!
+  sessionToken: String!
+  user: User
+}
+
+input SessionCreateInput {
+  expires: DateTime!
+  sessionToken: String!
+  user: UserWhereUniqueInput
+}
+
+input SessionCreateNestedManyWithoutUsersInput {
+  connect: [SessionWhereUniqueInput!]
+}
+
+input SessionListRelationFilter {
+  every: SessionWhereInput
+  none: SessionWhereInput
+  some: SessionWhereInput
+}
+
+input SessionOrderByInput {
+  expires: SortOrder
+  id: SortOrder
+  sessionToken: SortOrder
+  userId: SortOrder
+}
+
+input SessionUpdateInput {
+  expires: DateTime
+  sessionToken: String
+  user: UserWhereUniqueInput
+}
+
+input SessionUpdateManyWithoutUsersInput {
+  connect: [SessionWhereUniqueInput!]
+  disconnect: [SessionWhereUniqueInput!]
+  set: [SessionWhereUniqueInput!]
+}
+
+input SessionWhereInput {
+  expires: DateTimeFilter
+  id: StringFilter
+  sessionToken: StringFilter
+  user: UserWhereUniqueInput
+}
+
+input SessionWhereUniqueInput {
+  id: String!
+}
+
+enum SortOrder {
+  Asc
+  Desc
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+type Team {
+  bio: String
+  eventTypes(orderBy: [EventTypeOrderByInput!], skip: Float, take: Float, where: EventTypeWhereInput): [EventType!]!
+  hideBranding: Boolean!
+  id: Float!
+  logo: String
+  members(orderBy: [MembershipOrderByInput!], skip: Float, take: Float, where: MembershipWhereInput): [Membership!]!
+  name: String
+  slug: String
+}
+
+input TeamCreateInput {
+  bio: String
+  eventTypes: EventTypeCreateNestedManyWithoutTeamsInput
+  hideBranding: Boolean!
+  logo: String
+  members: MembershipCreateNestedManyWithoutTeamsInput
+  name: String
+  slug: String
+}
+
+input TeamOrderByInput {
+  bio: SortOrder
+  hideBranding: SortOrder
+  id: SortOrder
+  logo: SortOrder
+  name: SortOrder
+  slug: SortOrder
+}
+
+input TeamUpdateInput {
+  bio: String
+  eventTypes: EventTypeUpdateManyWithoutTeamsInput
+  hideBranding: Boolean
+  logo: String
+  members: MembershipUpdateManyWithoutTeamsInput
+  name: String
+  slug: String
+}
+
+input TeamWhereInput {
+  bio: StringNullableFilter
+  eventTypes: EventTypeListRelationFilter
+  hideBranding: BooleanFilter
+  id: IntFilter
+  logo: StringNullableFilter
+  members: MembershipListRelationFilter
+  name: StringNullableFilter
+  slug: StringNullableFilter
+}
+
+input TeamWhereUniqueInput {
+  id: Float!
+}
+
+type User {
+  accounts(orderBy: [AccountOrderByInput!], skip: Float, take: Float, where: AccountWhereInput): [Account!]!
+  allowDynamicBooking: Boolean
+  apiKeys(orderBy: [ApiKeyOrderByInput!], skip: Float, take: Float, where: ApiKeyWhereInput): [ApiKey!]!
+  availability(orderBy: [AvailabilityOrderByInput!], skip: Float, take: Float, where: AvailabilityWhereInput): [Availability!]!
+  avatar: String
+  away: Boolean!
+  bio: String
+  bookings(orderBy: [BookingOrderByInput!], skip: Float, take: Float, where: BookingWhereInput): [Booking!]!
+  brandColor: String!
+  bufferTime: Float!
+  completedOnboarding: Boolean!
+  createdDate: DateTime!
+  credentials(orderBy: [CredentialOrderByInput!], skip: Float, take: Float, where: CredentialWhereInput): [Credential!]!
+  darkBrandColor: String!
+  defaultScheduleId: Float
+  destinationCalendar: DestinationCalendar
+  disableImpersonation: Boolean!
+  email: String!
+  emailVerified: DateTime
+  endTime: Float!
+  eventTypes(orderBy: [EventTypeOrderByInput!], skip: Float, take: Float, where: EventTypeWhereInput): [EventType!]!
+  feedback(orderBy: [FeedbackOrderByInput!], skip: Float, take: Float, where: FeedbackWhereInput): [Feedback!]!
+  hideBranding: Boolean!
+  id: Float!
+  identityProvider: EnumUserIdentityProvider
+  identityProviderId: String
+  impersonatedBy(orderBy: [ImpersonationOrderByInput!], skip: Float, take: Float, where: ImpersonationWhereInput): [Impersonation!]!
+  impersonatedUsers(orderBy: [ImpersonationOrderByInput!], skip: Float, take: Float, where: ImpersonationWhereInput): [Impersonation!]!
+  invitedTo: Float
+  locale: String
+  metadata: JSON
+  name: String
+  password: String
+  plan: EnumUserPlan
+  role: EnumUserRole
+  schedules(orderBy: [ScheduleOrderByInput!], skip: Float, take: Float, where: ScheduleWhereInput): [Schedule!]!
+  selectedCalendars(orderBy: [SelectedCalendarOrderByInput!], skip: Float, take: Float, where: SelectedCalendarWhereInput): [SelectedCalendar!]!
+  sessions(orderBy: [SessionOrderByInput!], skip: Float, take: Float, where: SessionWhereInput): [Session!]!
+  startTime: Float!
+  teams(orderBy: [MembershipOrderByInput!], skip: Float, take: Float, where: MembershipWhereInput): [Membership!]!
+  theme: String
+  timeFormat: Float
+  timeZone: String!
+  trialEndsAt: DateTime
+  twoFactorEnabled: Boolean!
+  twoFactorSecret: String
+  username: String
+  verified: Boolean
+  webhooks(orderBy: [WebhookOrderByInput!], skip: Float, take: Float, where: WebhookWhereInput): [Webhook!]!
+  weekStart: String!
+  workflows(orderBy: [WorkflowOrderByInput!], skip: Float, take: Float, where: WorkflowWhereInput): [Workflow!]!
+}
+
+input UserCreateInput {
+  accounts: AccountCreateNestedManyWithoutUsersInput
+  allowDynamicBooking: Boolean
+  apiKeys: ApiKeyCreateNestedManyWithoutUsersInput
+  availability: AvailabilityCreateNestedManyWithoutUsersInput
+  avatar: String
+  away: Boolean!
+  bio: String
+  bookings: BookingCreateNestedManyWithoutUsersInput
+  brandColor: String!
+  bufferTime: Float!
+  completedOnboarding: Boolean!
+  credentials: CredentialCreateNestedManyWithoutUsersInput
+  darkBrandColor: String!
+  defaultScheduleId: Float
+  destinationCalendar: DestinationCalendarWhereUniqueInput
+  disableImpersonation: Boolean!
+  email: String!
+  emailVerified: DateTime
+  endTime: Float!
+  eventTypes: EventTypeCreateNestedManyWithoutUsersInput
+  feedback: FeedbackCreateNestedManyWithoutUsersInput
+  hideBranding: Boolean!
+  identityProvider: EnumUserIdentityProvider!
+  identityProviderId: String
+  impersonatedBy: ImpersonationCreateNestedManyWithoutUsersInput
+  impersonatedUsers: ImpersonationCreateNestedManyWithoutUsersInput
+  invitedTo: Float
+  locale: String
+  metadata: JSON
+  name: String
+  password: String
+  plan: EnumUserPlan!
+  role: EnumUserRole!
+  schedules: ScheduleCreateNestedManyWithoutUsersInput
+  selectedCalendars: SelectedCalendarCreateNestedManyWithoutUsersInput
+  sessions: SessionCreateNestedManyWithoutUsersInput
+  startTime: Float!
+  teams: MembershipCreateNestedManyWithoutUsersInput
+  theme: String
+  timeFormat: Float
+  timeZone: String!
+  trialEndsAt: DateTime
+  twoFactorEnabled: Boolean!
+  twoFactorSecret: String
+  username: String
+  verified: Boolean
+  webhooks: WebhookCreateNestedManyWithoutUsersInput
+  weekStart: String!
+  workflows: WorkflowCreateNestedManyWithoutUsersInput
+}
+
+input UserCreateNestedManyWithoutEventTypesInput {
+  connect: [UserWhereUniqueInput!]
+}
+
+input UserListRelationFilter {
+  every: UserWhereInput
+  none: UserWhereInput
+  some: UserWhereInput
+}
+
+input UserOrderByInput {
+  allowDynamicBooking: SortOrder
+  avatar: SortOrder
+  away: SortOrder
+  bio: SortOrder
+  brandColor: SortOrder
+  bufferTime: SortOrder
+  completedOnboarding: SortOrder
+  createdDate: SortOrder
+  darkBrandColor: SortOrder
+  defaultScheduleId: SortOrder
+  destinationCalendarId: SortOrder
+  disableImpersonation: SortOrder
+  email: SortOrder
+  emailVerified: SortOrder
+  endTime: SortOrder
+  hideBranding: SortOrder
+  id: SortOrder
+  identityProvider: SortOrder
+  identityProviderId: SortOrder
+  invitedTo: SortOrder
+  locale: SortOrder
+  metadata: SortOrder
+  name: SortOrder
+  password: SortOrder
+  plan: SortOrder
+  role: SortOrder
+  startTime: SortOrder
+  theme: SortOrder
+  timeFormat: SortOrder
+  timeZone: SortOrder
+  trialEndsAt: SortOrder
+  twoFactorEnabled: SortOrder
+  twoFactorSecret: SortOrder
+  username: SortOrder
+  verified: SortOrder
+  weekStart: SortOrder
+}
+
+input UserUpdateInput {
+  accounts: AccountUpdateManyWithoutUsersInput
+  allowDynamicBooking: Boolean
+  apiKeys: ApiKeyUpdateManyWithoutUsersInput
+  availability: AvailabilityUpdateManyWithoutUsersInput
+  avatar: String
+  away: Boolean
+  bio: String
+  bookings: BookingUpdateManyWithoutUsersInput
+  brandColor: String
+  bufferTime: Float
+  completedOnboarding: Boolean
+  credentials: CredentialUpdateManyWithoutUsersInput
+  darkBrandColor: String
+  defaultScheduleId: Float
+  destinationCalendar: DestinationCalendarWhereUniqueInput
+  disableImpersonation: Boolean
+  email: String
+  emailVerified: DateTime
+  endTime: Float
+  eventTypes: EventTypeUpdateManyWithoutUsersInput
+  feedback: FeedbackUpdateManyWithoutUsersInput
+  hideBranding: Boolean
+  identityProvider: EnumUserIdentityProvider
+  identityProviderId: String
+  impersonatedBy: ImpersonationUpdateManyWithoutUsersInput
+  impersonatedUsers: ImpersonationUpdateManyWithoutUsersInput
+  invitedTo: Float
+  locale: String
+  metadata: JSON
+  name: String
+  password: String
+  plan: EnumUserPlan
+  role: EnumUserRole
+  schedules: ScheduleUpdateManyWithoutUsersInput
+  selectedCalendars: SelectedCalendarUpdateManyWithoutUsersInput
+  sessions: SessionUpdateManyWithoutUsersInput
+  startTime: Float
+  teams: MembershipUpdateManyWithoutUsersInput
+  theme: String
+  timeFormat: Float
+  timeZone: String
+  trialEndsAt: DateTime
+  twoFactorEnabled: Boolean
+  twoFactorSecret: String
+  username: String
+  verified: Boolean
+  webhooks: WebhookUpdateManyWithoutUsersInput
+  weekStart: String
+  workflows: WorkflowUpdateManyWithoutUsersInput
+}
+
+input UserUpdateManyWithoutEventTypesInput {
+  connect: [UserWhereUniqueInput!]
+  disconnect: [UserWhereUniqueInput!]
+  set: [UserWhereUniqueInput!]
+}
+
+input UserWhereInput {
+  accounts: AccountListRelationFilter
+  allowDynamicBooking: BooleanNullableFilter
+  apiKeys: ApiKeyListRelationFilter
+  availability: AvailabilityListRelationFilter
+  avatar: StringNullableFilter
+  away: BooleanFilter
+  bio: StringNullableFilter
+  bookings: BookingListRelationFilter
+  brandColor: StringFilter
+  bufferTime: IntFilter
+  completedOnboarding: BooleanFilter
+  createdDate: DateTimeFilter
+  credentials: CredentialListRelationFilter
+  darkBrandColor: StringFilter
+  defaultScheduleId: IntNullableFilter
+  destinationCalendar: DestinationCalendarWhereUniqueInput
+  disableImpersonation: BooleanFilter
+  email: StringFilter
+  emailVerified: DateTimeNullableFilter
+  endTime: IntFilter
+  eventTypes: EventTypeListRelationFilter
+  feedback: FeedbackListRelationFilter
+  hideBranding: BooleanFilter
+  id: IntFilter
+  identityProvider: EnumUserIdentityProvider
+  identityProviderId: StringNullableFilter
+  impersonatedBy: ImpersonationListRelationFilter
+  impersonatedUsers: ImpersonationListRelationFilter
+  invitedTo: IntNullableFilter
+  locale: StringNullableFilter
+  metadata: JsonFilter
+  name: StringNullableFilter
+  password: StringNullableFilter
+  plan: EnumUserPlan
+  role: EnumUserRole
+  schedules: ScheduleListRelationFilter
+  selectedCalendars: SelectedCalendarListRelationFilter
+  sessions: SessionListRelationFilter
+  startTime: IntFilter
+  teams: MembershipListRelationFilter
+  theme: StringNullableFilter
+  timeFormat: IntNullableFilter
+  timeZone: StringFilter
+  trialEndsAt: DateTimeNullableFilter
+  twoFactorEnabled: BooleanFilter
+  twoFactorSecret: StringNullableFilter
+  username: StringNullableFilter
+  verified: BooleanNullableFilter
+  webhooks: WebhookListRelationFilter
+  weekStart: StringFilter
+  workflows: WorkflowListRelationFilter
+}
+
+input UserWhereUniqueInput {
+  id: Float!
+}
+
+type VerificationToken {
+  createdAt: DateTime!
+  expires: DateTime!
+  id: Float!
+  identifier: String!
+  token: String!
+  updatedAt: DateTime!
+}
+
+input VerificationTokenCreateInput {
+  expires: DateTime!
+  identifier: String!
+  token: String!
+}
+
+input VerificationTokenOrderByInput {
+  createdAt: SortOrder
+  expires: SortOrder
+  id: SortOrder
+  identifier: SortOrder
+  token: SortOrder
+  updatedAt: SortOrder
+}
+
+input VerificationTokenUpdateInput {
+  expires: DateTime
+  identifier: String
+  token: String
+}
+
+input VerificationTokenWhereInput {
+  createdAt: DateTimeFilter
+  expires: DateTimeFilter
+  id: IntFilter
+  identifier: StringFilter
+  token: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input VerificationTokenWhereUniqueInput {
+  id: Float!
+}
+
+type Webhook {
+  active: Boolean!
+  app: Application
+  createdAt: DateTime!
+  eventTriggers: [EnumWebhookEventTriggers!]
+  eventType: EventType
+  id: String!
+  payloadTemplate: String
+  secret: String
+  subscriberUrl: String!
+  user: User
+}
+
+input WebhookCreateInput {
+  active: Boolean!
+  app: ApplicationWhereUniqueInput
+  eventTriggers: [EnumWebhookEventTriggers!]
+  eventType: EventTypeWhereUniqueInput
+  payloadTemplate: String
+  secret: String
+  subscriberUrl: String!
+  user: UserWhereUniqueInput
+}
+
+input WebhookCreateNestedManyWithoutApplicationsInput {
+  connect: [WebhookWhereUniqueInput!]
+}
+
+input WebhookCreateNestedManyWithoutEventTypesInput {
+  connect: [WebhookWhereUniqueInput!]
+}
+
+input WebhookCreateNestedManyWithoutUsersInput {
+  connect: [WebhookWhereUniqueInput!]
+}
+
+input WebhookListRelationFilter {
+  every: WebhookWhereInput
+  none: WebhookWhereInput
+  some: WebhookWhereInput
+}
+
+input WebhookOrderByInput {
+  active: SortOrder
+  appId: SortOrder
+  createdAt: SortOrder
+  eventTriggers: SortOrder
+  eventTypeId: SortOrder
+  id: SortOrder
+  payloadTemplate: SortOrder
+  secret: SortOrder
+  subscriberUrl: SortOrder
+  userId: SortOrder
+}
+
+input WebhookUpdateInput {
+  active: Boolean
+  app: ApplicationWhereUniqueInput
+  eventTriggers: [EnumWebhookEventTriggers!]
+  eventType: EventTypeWhereUniqueInput
+  payloadTemplate: String
+  secret: String
+  subscriberUrl: String
+  user: UserWhereUniqueInput
+}
+
+input WebhookUpdateManyWithoutApplicationsInput {
+  connect: [WebhookWhereUniqueInput!]
+  disconnect: [WebhookWhereUniqueInput!]
+  set: [WebhookWhereUniqueInput!]
+}
+
+input WebhookUpdateManyWithoutEventTypesInput {
+  connect: [WebhookWhereUniqueInput!]
+  disconnect: [WebhookWhereUniqueInput!]
+  set: [WebhookWhereUniqueInput!]
+}
+
+input WebhookUpdateManyWithoutUsersInput {
+  connect: [WebhookWhereUniqueInput!]
+  disconnect: [WebhookWhereUniqueInput!]
+  set: [WebhookWhereUniqueInput!]
+}
+
+input WebhookWhereInput {
+  active: BooleanFilter
+  app: ApplicationWhereUniqueInput
+  createdAt: DateTimeFilter
+  eventType: EventTypeWhereUniqueInput
+  id: StringFilter
+  payloadTemplate: StringNullableFilter
+  secret: StringNullableFilter
+  subscriberUrl: StringFilter
+  user: UserWhereUniqueInput
+}
+
+input WebhookWhereUniqueInput {
+  id: String!
+}
+
+type Workflow {
+  activeOn(orderBy: [WorkflowsOnEventTypeOrderByInput!], skip: Float, take: Float, where: WorkflowsOnEventTypeWhereInput): [WorkflowsOnEventType!]!
+  id: Float!
+  name: String!
+  steps(orderBy: [WorkflowStepOrderByInput!], skip: Float, take: Float, where: WorkflowStepWhereInput): [WorkflowStep!]!
+  time: Float
+  timeUnit: EnumWorkflowTimeUnit
+  trigger: EnumWorkflowTrigger
+  user: User
+}
+
+input WorkflowCreateInput {
+  activeOn: WorkflowsOnEventTypeCreateNestedManyWithoutWorkflowsInput
+  name: String!
+  steps: WorkflowStepCreateNestedManyWithoutWorkflowsInput
+  time: Float
+  timeUnit: EnumWorkflowTimeUnit
+  trigger: EnumWorkflowTrigger!
+  user: UserWhereUniqueInput!
+}
+
+input WorkflowCreateNestedManyWithoutUsersInput {
+  connect: [WorkflowWhereUniqueInput!]
+}
+
+input WorkflowListRelationFilter {
+  every: WorkflowWhereInput
+  none: WorkflowWhereInput
+  some: WorkflowWhereInput
+}
+
+input WorkflowOrderByInput {
+  id: SortOrder
+  name: SortOrder
+  time: SortOrder
+  timeUnit: SortOrder
+  trigger: SortOrder
+  userId: SortOrder
+}
+
+type WorkflowReminder {
+  booking: Booking
+  id: Float!
+  method: EnumWorkflowReminderMethod
+  referenceId: String
+  scheduled: Boolean!
+  scheduledDate: DateTime!
+  workflowStep: WorkflowStep
+}
+
+input WorkflowReminderCreateInput {
+  booking: BookingWhereUniqueInput
+  method: EnumWorkflowReminderMethod!
+  referenceId: String
+  scheduled: Boolean!
+  scheduledDate: DateTime!
+  workflowStep: WorkflowStepWhereUniqueInput!
+}
+
+input WorkflowReminderCreateNestedManyWithoutBookingsInput {
+  connect: [WorkflowReminderWhereUniqueInput!]
+}
+
+input WorkflowReminderCreateNestedManyWithoutWorkflowStepsInput {
+  connect: [WorkflowReminderWhereUniqueInput!]
+}
+
+input WorkflowReminderListRelationFilter {
+  every: WorkflowReminderWhereInput
+  none: WorkflowReminderWhereInput
+  some: WorkflowReminderWhereInput
+}
+
+input WorkflowReminderOrderByInput {
+  bookingUid: SortOrder
+  id: SortOrder
+  method: SortOrder
+  referenceId: SortOrder
+  scheduled: SortOrder
+  scheduledDate: SortOrder
+  workflowStepId: SortOrder
+}
+
+input WorkflowReminderUpdateInput {
+  booking: BookingWhereUniqueInput
+  method: EnumWorkflowReminderMethod
+  referenceId: String
+  scheduled: Boolean
+  scheduledDate: DateTime
+  workflowStep: WorkflowStepWhereUniqueInput
+}
+
+input WorkflowReminderUpdateManyWithoutBookingsInput {
+  connect: [WorkflowReminderWhereUniqueInput!]
+  disconnect: [WorkflowReminderWhereUniqueInput!]
+  set: [WorkflowReminderWhereUniqueInput!]
+}
+
+input WorkflowReminderUpdateManyWithoutWorkflowStepsInput {
+  connect: [WorkflowReminderWhereUniqueInput!]
+  disconnect: [WorkflowReminderWhereUniqueInput!]
+  set: [WorkflowReminderWhereUniqueInput!]
+}
+
+input WorkflowReminderWhereInput {
+  booking: BookingWhereUniqueInput
+  id: IntFilter
+  method: EnumWorkflowReminderMethod
+  referenceId: StringNullableFilter
+  scheduled: BooleanFilter
+  scheduledDate: DateTimeFilter
+  workflowStep: WorkflowStepWhereUniqueInput
+}
+
+input WorkflowReminderWhereUniqueInput {
+  id: Float!
+}
+
+type WorkflowStep {
+  action: EnumWorkflowStepAction
+  emailSubject: String
+  id: Float!
+  reminderBody: String
+  sendTo: String
+  stepNumber: Float!
+  template: EnumWorkflowStepTemplate
+  workflow: Workflow
+  workflowReminders(orderBy: [WorkflowReminderOrderByInput!], skip: Float, take: Float, where: WorkflowReminderWhereInput): [WorkflowReminder!]!
+}
+
+input WorkflowStepCreateInput {
+  action: EnumWorkflowStepAction!
+  emailSubject: String
+  reminderBody: String
+  sendTo: String
+  stepNumber: Float!
+  template: EnumWorkflowStepTemplate!
+  workflow: WorkflowWhereUniqueInput!
+  workflowReminders: WorkflowReminderCreateNestedManyWithoutWorkflowStepsInput
+}
+
+input WorkflowStepCreateNestedManyWithoutWorkflowsInput {
+  connect: [WorkflowStepWhereUniqueInput!]
+}
+
+input WorkflowStepListRelationFilter {
+  every: WorkflowStepWhereInput
+  none: WorkflowStepWhereInput
+  some: WorkflowStepWhereInput
+}
+
+input WorkflowStepOrderByInput {
+  action: SortOrder
+  emailSubject: SortOrder
+  id: SortOrder
+  reminderBody: SortOrder
+  sendTo: SortOrder
+  stepNumber: SortOrder
+  template: SortOrder
+  workflowId: SortOrder
+}
+
+input WorkflowStepUpdateInput {
+  action: EnumWorkflowStepAction
+  emailSubject: String
+  reminderBody: String
+  sendTo: String
+  stepNumber: Float
+  template: EnumWorkflowStepTemplate
+  workflow: WorkflowWhereUniqueInput
+  workflowReminders: WorkflowReminderUpdateManyWithoutWorkflowStepsInput
+}
+
+input WorkflowStepUpdateManyWithoutWorkflowsInput {
+  connect: [WorkflowStepWhereUniqueInput!]
+  disconnect: [WorkflowStepWhereUniqueInput!]
+  set: [WorkflowStepWhereUniqueInput!]
+}
+
+input WorkflowStepWhereInput {
+  action: EnumWorkflowStepAction
+  emailSubject: StringNullableFilter
+  id: IntFilter
+  reminderBody: StringNullableFilter
+  sendTo: StringNullableFilter
+  stepNumber: IntFilter
+  template: EnumWorkflowStepTemplate
+  workflow: WorkflowWhereUniqueInput
+  workflowReminders: WorkflowReminderListRelationFilter
+}
+
+input WorkflowStepWhereUniqueInput {
+  id: Float!
+}
+
+input WorkflowUpdateInput {
+  activeOn: WorkflowsOnEventTypeUpdateManyWithoutWorkflowsInput
+  name: String
+  steps: WorkflowStepUpdateManyWithoutWorkflowsInput
+  time: Float
+  timeUnit: EnumWorkflowTimeUnit
+  trigger: EnumWorkflowTrigger
+  user: UserWhereUniqueInput
+}
+
+input WorkflowUpdateManyWithoutUsersInput {
+  connect: [WorkflowWhereUniqueInput!]
+  disconnect: [WorkflowWhereUniqueInput!]
+  set: [WorkflowWhereUniqueInput!]
+}
+
+input WorkflowWhereInput {
+  activeOn: WorkflowsOnEventTypeListRelationFilter
+  id: IntFilter
+  name: StringFilter
+  steps: WorkflowStepListRelationFilter
+  time: IntNullableFilter
+  timeUnit: EnumWorkflowTimeUnit
+  trigger: EnumWorkflowTrigger
+  user: UserWhereUniqueInput
+}
+
+input WorkflowWhereUniqueInput {
+  id: Float!
+}
+
+type WorkflowsOnEventType {
+  eventType: EventType
+  id: Float!
+  workflow: Workflow
+}
+
+input WorkflowsOnEventTypeCreateInput {
+  eventType: EventTypeWhereUniqueInput!
+  workflow: WorkflowWhereUniqueInput!
+}
+
+input WorkflowsOnEventTypeCreateNestedManyWithoutEventTypesInput {
+  connect: [WorkflowsOnEventTypeWhereUniqueInput!]
+}
+
+input WorkflowsOnEventTypeCreateNestedManyWithoutWorkflowsInput {
+  connect: [WorkflowsOnEventTypeWhereUniqueInput!]
+}
+
+input WorkflowsOnEventTypeListRelationFilter {
+  every: WorkflowsOnEventTypeWhereInput
+  none: WorkflowsOnEventTypeWhereInput
+  some: WorkflowsOnEventTypeWhereInput
+}
+
+input WorkflowsOnEventTypeOrderByInput {
+  eventTypeId: SortOrder
+  id: SortOrder
+  workflowId: SortOrder
+}
+
+input WorkflowsOnEventTypeUpdateInput {
+  eventType: EventTypeWhereUniqueInput
+  workflow: WorkflowWhereUniqueInput
+}
+
+input WorkflowsOnEventTypeUpdateManyWithoutEventTypesInput {
+  connect: [WorkflowsOnEventTypeWhereUniqueInput!]
+  disconnect: [WorkflowsOnEventTypeWhereUniqueInput!]
+  set: [WorkflowsOnEventTypeWhereUniqueInput!]
+}
+
+input WorkflowsOnEventTypeUpdateManyWithoutWorkflowsInput {
+  connect: [WorkflowsOnEventTypeWhereUniqueInput!]
+  disconnect: [WorkflowsOnEventTypeWhereUniqueInput!]
+  set: [WorkflowsOnEventTypeWhereUniqueInput!]
+}
+
+input WorkflowsOnEventTypeWhereInput {
+  eventType: EventTypeWhereUniqueInput
+  id: IntFilter
+  workflow: WorkflowWhereUniqueInput
+}
+
+input WorkflowsOnEventTypeWhereUniqueInput {
+  id: Float!
+}
