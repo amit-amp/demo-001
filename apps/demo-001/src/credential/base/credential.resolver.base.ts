@@ -22,7 +22,7 @@ import { UpdateCredentialArgs } from "./UpdateCredentialArgs";
 import { DeleteCredentialArgs } from "./DeleteCredentialArgs";
 import { DestinationCalendarFindManyArgs } from "../../destinationCalendar/base/DestinationCalendarFindManyArgs";
 import { DestinationCalendar } from "../../destinationCalendar/base/DestinationCalendar";
-import { App } from "../../app/base/App";
+import { Application } from "../../application/base/Application";
 import { User } from "../../user/base/User";
 import { CredentialService } from "../credential.service";
 @graphql.Resolver(() => Credential)
@@ -148,11 +148,13 @@ export class CredentialResolverBase {
     return results;
   }
 
-  @graphql.ResolveField(() => App, {
+  @graphql.ResolveField(() => Application, {
     nullable: true,
     name: "app",
   })
-  async getApp(@graphql.Parent() parent: Credential): Promise<App | null> {
+  async getApp(
+    @graphql.Parent() parent: Credential
+  ): Promise<Application | null> {
     const result = await this.service.getApp(parent.id);
 
     if (!result) {

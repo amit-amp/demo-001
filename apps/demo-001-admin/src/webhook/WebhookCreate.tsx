@@ -11,7 +11,7 @@ import {
   TextInput,
 } from "react-admin";
 
-import { AppTitle } from "../app/AppTitle";
+import { ApplicationTitle } from "../application/ApplicationTitle";
 import { EventTypeTitle } from "../eventType/EventTypeTitle";
 import { UserTitle } from "../user/UserTitle";
 
@@ -20,8 +20,8 @@ export const WebhookCreate = (props: CreateProps): React.ReactElement => {
     <Create {...props}>
       <SimpleForm>
         <BooleanInput label="Active" source="active" />
-        <ReferenceInput source="app.id" reference="App" label="App">
-          <SelectInput optionText={AppTitle} />
+        <ReferenceInput source="app.id" reference="Application" label="App">
+          <SelectInput optionText={ApplicationTitle} />
         </ReferenceInput>
         <SelectArrayInput
           label="Event Triggers"

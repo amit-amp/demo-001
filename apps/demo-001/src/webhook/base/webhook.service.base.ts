@@ -14,7 +14,7 @@ import { PrismaService } from "../../prisma/prisma.service";
 import {
   Prisma,
   Webhook, // @ts-ignore
-  App, // @ts-ignore
+  Application, // @ts-ignore
   EventType, // @ts-ignore
   User,
 } from "@prisma/client";
@@ -54,7 +54,7 @@ export class WebhookServiceBase {
     return this.prisma.webhook.delete(args);
   }
 
-  async getApp(parentId: string): Promise<App | null> {
+  async getApp(parentId: string): Promise<Application | null> {
     return this.prisma.webhook
       .findUnique({
         where: { id: parentId },

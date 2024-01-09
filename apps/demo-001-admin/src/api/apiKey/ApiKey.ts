@@ -1,8 +1,8 @@
-import { App } from "../app/App";
+import { Application } from "../application/Application";
 import { User } from "../user/User";
 
 export type ApiKey = {
-  app?: App | null;
+  app?: Application | null;
   createdAt: Date;
   expiresAt: Date | null;
   hashedKey: string;

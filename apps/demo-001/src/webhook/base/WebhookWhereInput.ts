@@ -14,7 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { BooleanFilter } from "../../util/BooleanFilter";
 import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
-import { AppWhereUniqueInput } from "../../app/base/AppWhereUniqueInput";
+import { ApplicationWhereUniqueInput } from "../../application/base/ApplicationWhereUniqueInput";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
 import { EventTypeWhereUniqueInput } from "../../eventType/base/EventTypeWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
@@ -36,15 +36,15 @@ class WebhookWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => AppWhereUniqueInput,
+    type: () => ApplicationWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => AppWhereUniqueInput)
+  @Type(() => ApplicationWhereUniqueInput)
   @IsOptional()
-  @Field(() => AppWhereUniqueInput, {
+  @Field(() => ApplicationWhereUniqueInput, {
     nullable: true,
   })
-  app?: AppWhereUniqueInput;
+  app?: ApplicationWhereUniqueInput;
 
   @ApiProperty({
     required: false,

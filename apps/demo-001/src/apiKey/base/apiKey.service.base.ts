@@ -14,7 +14,7 @@ import { PrismaService } from "../../prisma/prisma.service";
 import {
   Prisma,
   ApiKey, // @ts-ignore
-  App, // @ts-ignore
+  Application, // @ts-ignore
   User,
 } from "@prisma/client";
 
@@ -53,7 +53,7 @@ export class ApiKeyServiceBase {
     return this.prisma.apiKey.delete(args);
   }
 
-  async getApp(parentId: string): Promise<App | null> {
+  async getApp(parentId: string): Promise<Application | null> {
     return this.prisma.apiKey
       .findUnique({
         where: { id: parentId },

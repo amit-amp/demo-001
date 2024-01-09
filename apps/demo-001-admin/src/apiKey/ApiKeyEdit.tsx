@@ -10,15 +10,15 @@ import {
   TextInput,
 } from "react-admin";
 
-import { AppTitle } from "../app/AppTitle";
+import { ApplicationTitle } from "../application/ApplicationTitle";
 import { UserTitle } from "../user/UserTitle";
 
 export const ApiKeyEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
-        <ReferenceInput source="app.id" reference="App" label="App">
-          <SelectInput optionText={AppTitle} />
+        <ReferenceInput source="app.id" reference="Application" label="App">
+          <SelectInput optionText={ApplicationTitle} />
         </ReferenceInput>
         <DateTimeInput label="Expires At" source="expiresAt" />
         <TextInput label="Hashed Key" source="hashedKey" />

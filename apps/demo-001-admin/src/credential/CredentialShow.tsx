@@ -14,14 +14,18 @@ import { BOOKING_TITLE_FIELD } from "../booking/BookingTitle";
 import { CREDENTIAL_TITLE_FIELD } from "./CredentialTitle";
 import { EVENTTYPE_TITLE_FIELD } from "../eventType/EventTypeTitle";
 import { USER_TITLE_FIELD } from "../user/UserTitle";
-import { APP_TITLE_FIELD } from "../app/AppTitle";
+import { APPLICATION_TITLE_FIELD } from "../application/ApplicationTitle";
 
 export const CredentialShow = (props: ShowProps): React.ReactElement => {
   return (
     <Show {...props}>
       <SimpleShowLayout>
-        <ReferenceField label="App" source="app.id" reference="App">
-          <TextField source={APP_TITLE_FIELD} />
+        <ReferenceField
+          label="App"
+          source="application.id"
+          reference="Application"
+        >
+          <TextField source={APPLICATION_TITLE_FIELD} />
         </ReferenceField>
         <TextField label="ID" source="id" />
         <TextField label="Key" source="key" />

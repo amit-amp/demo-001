@@ -56,7 +56,7 @@ model EventType {
 }
 
 model Credential {
-  app                  App?                  @relation(fields: [appId], references: [id])
+  app                  Application?          @relation(fields: [appId], references: [id])
   appId                String?
   destinationCalendars DestinationCalendar[]
   id                   Int                   @id @default(autoincrement())
@@ -311,7 +311,7 @@ model Payment {
 
 model Webhook {
   active          Boolean                    @default(true)
-  app             App?                       @relation(fields: [appId], references: [id])
+  app             Application?               @relation(fields: [appId], references: [id])
   appId           String?
   createdAt       DateTime                   @default(now())
   eventTriggers   EnumWebhookEventTriggers[]
@@ -337,15 +337,15 @@ model Impersonation {
 }
 
 model ApiKey {
-  app        App?      @relation(fields: [appId], references: [id])
+  app        Application? @relation(fields: [appId], references: [id])
   appId      String?
-  createdAt  DateTime  @default(now())
+  createdAt  DateTime     @default(now())
   expiresAt  DateTime?
-  hashedKey  String    @unique
-  id         String    @id @unique @default(cuid())
+  hashedKey  String       @unique
+  id         String       @id @unique @default(cuid())
   lastUsedAt DateTime?
   note       String?
-  user       User?     @relation(fields: [userId], references: [id])
+  user       User?        @relation(fields: [userId], references: [id])
   userId     Int?
 }
 
@@ -382,16 +382,18 @@ model Session {
   userId       Int?
 }
 
-model App {
+model Application {
   apiKey      ApiKey[]
-  categories  EnumAppCategories[]
-  createdAt   DateTime            @default(now())
+  categories  EnumApplicationCategories[]
+  createdAt   DateTime                    @default(now())
   credentials Credential[]
-  dirName     String              @unique
-  id          String              @id @unique @default(cuid()) @map("slug")
+  dirName     String                      @unique
+  id          String                      @id @unique @default(cuid()) @map("slug")
   keys        Json?
-  updatedAt   DateTime            @updatedAt
+  updatedAt   DateTime                    @updatedAt
   webhook     Webhook[]
+
+  @@map("App")
 }
 
 model Feedback {
@@ -512,7 +514,7 @@ enum EnumWebhookEventTriggers {
   BOOKING_CANCELLED
 }
 
-enum EnumAppCategories {
+enum EnumApplicationCategories {
   calendar
   messaging
   other
