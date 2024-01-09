@@ -393,7 +393,7 @@ model Application {
   updatedAt   DateTime                    @updatedAt
   webhook     Webhook[]
 
-  @@@map("App")
+  @@map("App")
 }
 
 model Feedback {
