@@ -392,6 +392,8 @@ model Application {
   keys        Json?
   updatedAt   DateTime                    @updatedAt
   webhook     Webhook[]
+
+  @@@map("App")
 }
 
 model Feedback {
