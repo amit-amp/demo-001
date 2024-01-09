@@ -7,7 +7,7 @@ import {
   TextField,
 } from "react-admin";
 import Pagination from "../Components/Pagination";
-import { APP_TITLE_FIELD } from "../app/AppTitle";
+import { APPLICATION_TITLE_FIELD } from "../application/ApplicationTitle";
 import { USER_TITLE_FIELD } from "../user/UserTitle";
 
 export const CredentialList = (props: ListProps): React.ReactElement => {
@@ -20,8 +20,12 @@ export const CredentialList = (props: ListProps): React.ReactElement => {
       pagination={<Pagination />}
     >
       <Datagrid rowClick="show">
-        <ReferenceField label="App" source="app.id" reference="App">
-          <TextField source={APP_TITLE_FIELD} />
+        <ReferenceField
+          label="App"
+          source="application.id"
+          reference="Application"
+        >
+          <TextField source={APPLICATION_TITLE_FIELD} />
         </ReferenceField>
         <TextField label="ID" source="id" />
         <TextField label="Key" source="key" />

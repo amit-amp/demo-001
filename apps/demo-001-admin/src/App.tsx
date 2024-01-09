@@ -101,10 +101,10 @@ import { SessionList } from "./session/SessionList";
 import { SessionCreate } from "./session/SessionCreate";
 import { SessionEdit } from "./session/SessionEdit";
 import { SessionShow } from "./session/SessionShow";
-import { AppList } from "./app/AppList";
-import { AppCreate } from "./app/AppCreate";
-import { AppEdit } from "./app/AppEdit";
-import { AppShow } from "./app/AppShow";
+import { ApplicationList } from "./application/ApplicationList";
+import { ApplicationCreate } from "./application/ApplicationCreate";
+import { ApplicationEdit } from "./application/ApplicationEdit";
+import { ApplicationShow } from "./application/ApplicationShow";
 import { FeedbackList } from "./feedback/FeedbackList";
 import { FeedbackCreate } from "./feedback/FeedbackCreate";
 import { FeedbackEdit } from "./feedback/FeedbackEdit";
@@ -320,11 +320,11 @@ const App = (): React.ReactElement => {
           show={SessionShow}
         />
         <Resource
-          name="App"
-          list={AppList}
-          edit={AppEdit}
-          create={AppCreate}
-          show={AppShow}
+          name="Application"
+          list={ApplicationList}
+          edit={ApplicationEdit}
+          create={ApplicationCreate}
+          show={ApplicationShow}
         />
         <Resource
           name="Feedback"

@@ -1,10 +1,10 @@
-import { AppWhereUniqueInput } from "../app/AppWhereUniqueInput";
+import { ApplicationWhereUniqueInput } from "../application/ApplicationWhereUniqueInput";
 import { DestinationCalendarUpdateManyWithoutCredentialsInput } from "./DestinationCalendarUpdateManyWithoutCredentialsInput";
 import { InputJsonValue } from "../../types";
 import { UserWhereUniqueInput } from "../user/UserWhereUniqueInput";
 
 export type CredentialUpdateInput = {
-  app?: AppWhereUniqueInput | null;
+  app?: ApplicationWhereUniqueInput | null;
   destinationCalendars?: DestinationCalendarUpdateManyWithoutCredentialsInput;
   key?: InputJsonValue;
   typeField?: string;

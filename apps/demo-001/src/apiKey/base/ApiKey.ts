@@ -11,7 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { App } from "../../app/base/App";
+import { Application } from "../../application/base/Application";
 import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
 import { Type } from "class-transformer";
 import { User } from "../../user/base/User";
@@ -20,12 +20,12 @@ import { User } from "../../user/base/User";
 class ApiKey {
   @ApiProperty({
     required: false,
-    type: () => App,
+    type: () => Application,
   })
   @ValidateNested()
-  @Type(() => App)
+  @Type(() => Application)
   @IsOptional()
-  app?: App | null;
+  app?: Application | null;
 
   @ApiProperty({
     required: true,

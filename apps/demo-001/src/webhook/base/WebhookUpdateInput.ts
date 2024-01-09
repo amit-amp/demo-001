@@ -18,7 +18,7 @@ import {
   IsEnum,
   IsString,
 } from "class-validator";
-import { AppWhereUniqueInput } from "../../app/base/AppWhereUniqueInput";
+import { ApplicationWhereUniqueInput } from "../../application/base/ApplicationWhereUniqueInput";
 import { Type } from "class-transformer";
 import { EnumWebhookEventTriggers } from "./EnumWebhookEventTriggers";
 import { EventTypeWhereUniqueInput } from "../../eventType/base/EventTypeWhereUniqueInput";
@@ -39,15 +39,15 @@ class WebhookUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: () => AppWhereUniqueInput,
+    type: () => ApplicationWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => AppWhereUniqueInput)
+  @Type(() => ApplicationWhereUniqueInput)
   @IsOptional()
-  @Field(() => AppWhereUniqueInput, {
+  @Field(() => ApplicationWhereUniqueInput, {
     nullable: true,
   })
-  app?: AppWhereUniqueInput | null;
+  app?: ApplicationWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

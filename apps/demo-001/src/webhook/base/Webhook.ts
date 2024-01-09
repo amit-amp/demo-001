@@ -19,7 +19,7 @@ import {
   IsEnum,
   IsString,
 } from "class-validator";
-import { App } from "../../app/base/App";
+import { Application } from "../../application/base/Application";
 import { Type } from "class-transformer";
 import { EnumWebhookEventTriggers } from "./EnumWebhookEventTriggers";
 import { EventType } from "../../eventType/base/EventType";
@@ -37,12 +37,12 @@ class Webhook {
 
   @ApiProperty({
     required: false,
-    type: () => App,
+    type: () => Application,
   })
   @ValidateNested()
-  @Type(() => App)
+  @Type(() => Application)
   @IsOptional()
-  app?: App | null;
+  app?: Application | null;
 
   @ApiProperty({
     required: true,

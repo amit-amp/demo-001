@@ -13,7 +13,7 @@ import {
 } from "react-admin";
 
 import { USER_TITLE_FIELD } from "./UserTitle";
-import { APP_TITLE_FIELD } from "../app/AppTitle";
+import { APPLICATION_TITLE_FIELD } from "../application/ApplicationTitle";
 import { EVENTTYPE_TITLE_FIELD } from "../eventType/EventTypeTitle";
 import { SCHEDULE_TITLE_FIELD } from "../schedule/ScheduleTitle";
 import { DAILYEVENTREFERENCE_TITLE_FIELD } from "../dailyEventReference/DailyEventReferenceTitle";
@@ -99,8 +99,12 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
         </ReferenceManyField>
         <ReferenceManyField reference="ApiKey" target="userId" label="ApiKeys">
           <Datagrid rowClick="show">
-            <ReferenceField label="App" source="app.id" reference="App">
-              <TextField source={APP_TITLE_FIELD} />
+            <ReferenceField
+              label="App"
+              source="application.id"
+              reference="Application"
+            >
+              <TextField source={APPLICATION_TITLE_FIELD} />
             </ReferenceField>
             <DateField source="createdAt" label="Created At" />
             <TextField label="Expires At" source="expiresAt" />
@@ -210,8 +214,12 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
           label="Credentials"
         >
           <Datagrid rowClick="show">
-            <ReferenceField label="App" source="app.id" reference="App">
-              <TextField source={APP_TITLE_FIELD} />
+            <ReferenceField
+              label="App"
+              source="application.id"
+              reference="Application"
+            >
+              <TextField source={APPLICATION_TITLE_FIELD} />
             </ReferenceField>
             <TextField label="ID" source="id" />
             <TextField label="Key" source="key" />
@@ -350,8 +358,12 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
         >
           <Datagrid rowClick="show">
             <BooleanField label="Active" source="active" />
-            <ReferenceField label="App" source="app.id" reference="App">
-              <TextField source={APP_TITLE_FIELD} />
+            <ReferenceField
+              label="App"
+              source="application.id"
+              reference="Application"
+            >
+              <TextField source={APPLICATION_TITLE_FIELD} />
             </ReferenceField>
             <DateField source="createdAt" label="Created At" />
             <TextField label="Event Triggers" source="eventTriggers" />

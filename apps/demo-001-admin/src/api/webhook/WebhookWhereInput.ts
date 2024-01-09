@@ -1,5 +1,5 @@
 import { BooleanFilter } from "../../util/BooleanFilter";
-import { AppWhereUniqueInput } from "../app/AppWhereUniqueInput";
+import { ApplicationWhereUniqueInput } from "../application/ApplicationWhereUniqueInput";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
 import { EventTypeWhereUniqueInput } from "../eventType/EventTypeWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
@@ -8,7 +8,7 @@ import { UserWhereUniqueInput } from "../user/UserWhereUniqueInput";
 
 export type WebhookWhereInput = {
   active?: BooleanFilter;
-  app?: AppWhereUniqueInput;
+  app?: ApplicationWhereUniqueInput;
   createdAt?: DateTimeFilter;
   eventType?: EventTypeWhereUniqueInput;
   id?: StringFilter;

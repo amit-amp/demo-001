@@ -23,7 +23,7 @@ import { ApiKeyModule } from "./apiKey/apiKey.module";
 import { HashedLinkModule } from "./hashedLink/hashedLink.module";
 import { AccountModule } from "./account/account.module";
 import { SessionModule } from "./session/session.module";
-import { AppModule } from "./app/app.module";
+import { ApplicationModule } from "./application/application.module";
 import { FeedbackModule } from "./feedback/feedback.module";
 import { WorkflowStepModule } from "./workflowStep/workflowStep.module";
 import { WorkflowModule } from "./workflow/workflow.module";
@@ -65,7 +65,7 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     HashedLinkModule,
     AccountModule,
     SessionModule,
-    AppModule,
+    ApplicationModule,
     FeedbackModule,
     WorkflowStepModule,
     WorkflowModule,

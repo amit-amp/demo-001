@@ -15,7 +15,7 @@ import {
   Prisma,
   Credential, // @ts-ignore
   DestinationCalendar, // @ts-ignore
-  App, // @ts-ignore
+  Application, // @ts-ignore
   User,
 } from "@prisma/client";
 
@@ -65,7 +65,7 @@ export class CredentialServiceBase {
       .destinationCalendars(args);
   }
 
-  async getApp(parentId: number): Promise<App | null> {
+  async getApp(parentId: number): Promise<Application | null> {
     return this.prisma.credential
       .findUnique({
         where: { id: parentId },

@@ -11,7 +11,7 @@ import {
 } from "react-admin";
 
 import Pagination from "../Components/Pagination";
-import { APP_TITLE_FIELD } from "../app/AppTitle";
+import { APPLICATION_TITLE_FIELD } from "../application/ApplicationTitle";
 import { EVENTTYPE_TITLE_FIELD } from "../eventType/EventTypeTitle";
 import { USER_TITLE_FIELD } from "../user/UserTitle";
 
@@ -26,8 +26,12 @@ export const WebhookList = (props: ListProps): React.ReactElement => {
     >
       <Datagrid rowClick="show">
         <BooleanField label="Active" source="active" />
-        <ReferenceField label="App" source="app.id" reference="App">
-          <TextField source={APP_TITLE_FIELD} />
+        <ReferenceField
+          label="App"
+          source="application.id"
+          reference="Application"
+        >
+          <TextField source={APPLICATION_TITLE_FIELD} />
         </ReferenceField>
         <DateField source="createdAt" label="Created At" />
         <TextField label="Event Triggers" source="eventTriggers" />

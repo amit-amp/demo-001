@@ -11,7 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { AppWhereUniqueInput } from "../../app/base/AppWhereUniqueInput";
+import { ApplicationWhereUniqueInput } from "../../application/base/ApplicationWhereUniqueInput";
 import { ValidateNested, IsOptional, IsString } from "class-validator";
 import { Type } from "class-transformer";
 import { DestinationCalendarUpdateManyWithoutCredentialsInput } from "./DestinationCalendarUpdateManyWithoutCredentialsInput";
@@ -24,15 +24,15 @@ import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
 class CredentialUpdateInput {
   @ApiProperty({
     required: false,
-    type: () => AppWhereUniqueInput,
+    type: () => ApplicationWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => AppWhereUniqueInput)
+  @Type(() => ApplicationWhereUniqueInput)
   @IsOptional()
-  @Field(() => AppWhereUniqueInput, {
+  @Field(() => ApplicationWhereUniqueInput, {
     nullable: true,
   })
-  app?: AppWhereUniqueInput | null;
+  app?: ApplicationWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

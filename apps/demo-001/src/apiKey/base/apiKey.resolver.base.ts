@@ -20,7 +20,7 @@ import { ApiKeyFindUniqueArgs } from "./ApiKeyFindUniqueArgs";
 import { CreateApiKeyArgs } from "./CreateApiKeyArgs";
 import { UpdateApiKeyArgs } from "./UpdateApiKeyArgs";
 import { DeleteApiKeyArgs } from "./DeleteApiKeyArgs";
-import { App } from "../../app/base/App";
+import { Application } from "../../application/base/Application";
 import { User } from "../../user/base/User";
 import { ApiKeyService } from "../apiKey.service";
 @graphql.Resolver(() => ApiKey)
@@ -123,11 +123,11 @@ export class ApiKeyResolverBase {
     }
   }
 
-  @graphql.ResolveField(() => App, {
+  @graphql.ResolveField(() => Application, {
     nullable: true,
     name: "app",
   })
-  async getApp(@graphql.Parent() parent: ApiKey): Promise<App | null> {
+  async getApp(@graphql.Parent() parent: ApiKey): Promise<Application | null> {
     const result = await this.service.getApp(parent.id);
 
     if (!result) {

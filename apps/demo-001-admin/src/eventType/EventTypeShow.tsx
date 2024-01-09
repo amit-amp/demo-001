@@ -17,7 +17,7 @@ import { SCHEDULE_TITLE_FIELD } from "../schedule/ScheduleTitle";
 import { USER_TITLE_FIELD } from "../user/UserTitle";
 import { DAILYEVENTREFERENCE_TITLE_FIELD } from "../dailyEventReference/DailyEventReferenceTitle";
 import { DESTINATIONCALENDAR_TITLE_FIELD } from "../destinationCalendar/DestinationCalendarTitle";
-import { APP_TITLE_FIELD } from "../app/AppTitle";
+import { APPLICATION_TITLE_FIELD } from "../application/ApplicationTitle";
 import { WORKFLOW_TITLE_FIELD } from "../workflow/WorkflowTitle";
 import { HASHEDLINK_TITLE_FIELD } from "../hashedLink/HashedLinkTitle";
 import { TEAM_TITLE_FIELD } from "../team/TeamTitle";
@@ -207,8 +207,12 @@ export const EventTypeShow = (props: ShowProps): React.ReactElement => {
         >
           <Datagrid rowClick="show">
             <BooleanField label="Active" source="active" />
-            <ReferenceField label="App" source="app.id" reference="App">
-              <TextField source={APP_TITLE_FIELD} />
+            <ReferenceField
+              label="App"
+              source="application.id"
+              reference="Application"
+            >
+              <TextField source={APPLICATION_TITLE_FIELD} />
             </ReferenceField>
             <DateField source="createdAt" label="Created At" />
             <TextField label="Event Triggers" source="eventTriggers" />

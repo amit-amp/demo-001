@@ -20,7 +20,7 @@ import { WebhookFindUniqueArgs } from "./WebhookFindUniqueArgs";
 import { CreateWebhookArgs } from "./CreateWebhookArgs";
 import { UpdateWebhookArgs } from "./UpdateWebhookArgs";
 import { DeleteWebhookArgs } from "./DeleteWebhookArgs";
-import { App } from "../../app/base/App";
+import { Application } from "../../application/base/Application";
 import { EventType } from "../../eventType/base/EventType";
 import { User } from "../../user/base/User";
 import { WebhookService } from "../webhook.service";
@@ -140,11 +140,11 @@ export class WebhookResolverBase {
     }
   }
 
-  @graphql.ResolveField(() => App, {
+  @graphql.ResolveField(() => Application, {
     nullable: true,
     name: "app",
   })
-  async getApp(@graphql.Parent() parent: Webhook): Promise<App | null> {
+  async getApp(@graphql.Parent() parent: Webhook): Promise<Application | null> {
     const result = await this.service.getApp(parent.id);
 
     if (!result) {
